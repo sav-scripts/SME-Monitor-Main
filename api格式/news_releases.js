@@ -24,7 +24,7 @@ var response = {
                 "title": "balabalalala",                  // 主標
                 "sub_title": "lababababa",                // 次標
                 "thumb_desktop": "http://xxx.xx/xx.jpg",  // 桌機板縮圖 (270 x 200)
-                "thumb_mobile": "http://xxx.xx/xx.m.jpg"  // 手機板縮圖 (448 x 331)
+                "thumb_mobile": "http://xxx.xx/xx.m.jpg"  // 手機板縮圖 (448 x 332)
             }
             // ...以下多筆相同格式資料
         ]

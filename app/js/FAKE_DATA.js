@@ -1,18 +1,18 @@
 window._FAKE_DATA_ =
 {
-    "banners":
+    "banner":
     {
         "error": '',
         "data_list":
             [
                 {
                     "image": "./test/images/banner-1.png",
-                    "image_m": "./test/images/banner-1.png",
+                    "image_m": "./test/images/banner-1.m.png",
                     "link": "http://example.com/?v=1"
                 },
                 {
                     "image": "./test/images/banner-2.png",
-                    "image_m": "./test/images/banner-2.png",
+                    "image_m": "./test/images/banner-2.m.png",
                     "link": "http://example.com/?v=2"
                 }
             ]
@@ -582,7 +582,7 @@ window._FAKE_DATA_ =
                     "id": "001",
 
                     "thumb_desktop": "./test/images/pictures-thumb-1.png",
-                    "thumb_mobile": "./test/images/pictures-thumb-1.png",
+                    "thumb_mobile": "./test/images/pictures-thumb-1.m.png",
 
                     "date": "2017/5/5 Fri",
                     "title": "2016 APEC Leaders' Declaration",
@@ -592,7 +592,7 @@ window._FAKE_DATA_ =
                     "id": "002",
 
                     "thumb_desktop": "./test/images/pictures-thumb-1.png",
-                    "thumb_mobile": "./test/images/pictures-thumb-1.png",
+                    "thumb_mobile": "./test/images/pictures-thumb-1.m.png",
 
                     "date": "2017-09-13",
                     "title": "balabalalala asd asdf a sfdf asfasdf saf saf sdf",
@@ -602,7 +602,7 @@ window._FAKE_DATA_ =
                     "id": "003",
 
                     "thumb_desktop": "./test/images/pictures-thumb-1.png",
-                    "thumb_mobile": "./test/images/pictures-thumb-1.png",
+                    "thumb_mobile": "./test/images/pictures-thumb-1.m.png",
 
                     "date": "2017-09-13",
                     "title": "balabalalala asd asdf a sfdf asfasdf saf saf sdf",
@@ -620,7 +620,55 @@ window._FAKE_DATA_ =
                     "img": "http://xxx.xx/photo/picture/001.jpg",
 
                     "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
-                    "thumb_mobile": "./test/images/pictures-thumb-1.png",
+                    "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
+
+                    "filename": "photo 01"
+                },
+                {
+                    "img": "http://xxx.xx/photo/picture/001.jpg",
+
+                    "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
+                    "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
+
+                    "filename": "photo 01"
+                },
+                {
+                    "img": "http://xxx.xx/photo/picture/001.jpg",
+
+                    "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
+                    "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
+
+                    "filename": "photo 01"
+                },
+                {
+                    "img": "http://xxx.xx/photo/picture/001.jpg",
+
+                    "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
+                    "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
+
+                    "filename": "photo 01"
+                },
+                {
+                    "img": "http://xxx.xx/photo/picture/001.jpg",
+
+                    "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
+                    "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
+
+                    "filename": "photo 01"
+                },
+                {
+                    "img": "http://xxx.xx/photo/picture/001.jpg",
+
+                    "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
+                    "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
+
+                    "filename": "photo 01"
+                },
+                {
+                    "img": "http://xxx.xx/photo/picture/001.jpg",
+
+                    "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
+                    "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
 
                     "filename": "photo 01"
                 }
@@ -635,35 +683,35 @@ window._FAKE_DATA_ =
             [
                 {
                     "thumb_desktop": "./test/images/video-thumb-1.png",
-                    "thumb_mobile": "./test/images/video-thumb-1.png",
+                    "thumb_mobile": "./test/images/video-thumb-1.m.png",
 
                     "title": "The President of Chinese Taipei, Tsai Ing-Wen, Said that SMEs and Startups are the areas where Chinese Taipei have high competitiveness",
                     "link": "http://maybe.utube/"
                 },
                 {
                     "thumb_desktop": "./test/images/video-thumb-1.png",
-                    "thumb_mobile": "./test/images/video-thumb-1.png",
+                    "thumb_mobile": "./test/images/video-thumb-1.m.png",
 
                     "title": "balabalalala",
                     "link": "http://maybe.utube/"
                 },
                 {
                     "thumb_desktop": "./test/images/video-thumb-1.png",
-                    "thumb_mobile": "./test/images/video-thumb-1.png",
+                    "thumb_mobile": "./test/images/video-thumb-1.m.png",
 
                     "title": "balabalalala",
                     "link": "http://maybe.utube/"
                 },
                 {
                     "thumb_desktop": "./test/images/video-thumb-1.png",
-                    "thumb_mobile": "./test/images/video-thumb-1.png",
+                    "thumb_mobile": "./test/images/video-thumb-1.m.png",
 
                     "title": "balabalalala",
                     "link": "http://maybe.utube/"
                 },
                 {
                     "thumb_desktop": "./test/images/video-thumb-1.png",
-                    "thumb_mobile": "./test/images/video-thumb-1.png",
+                    "thumb_mobile": "./test/images/video-thumb-1.m.png",
 
                     "title": "balabalalala",
                     "link": "http://maybe.utube/"
@@ -714,42 +762,42 @@ window._FAKE_DATA_ =
                     "id": "001",
                     "link": "",
                     "content_url_desktop": "./test/inner_page/initiatives.001.html",
-                    "content_url_mobile": "./test/inner_page/initiatives.001.html",
+                    "content_url_mobile": "./test/inner_page/initiatives.001.m.html",
                     "title": "2012"
                 },
                 {
                     "id": "002",
                     "link": "",
                     "content_url_desktop": "./test/inner_page/initiatives.001.html",
-                    "content_url_mobile": "./test/inner_page/initiatives.001.html",
+                    "content_url_mobile": "./test/inner_page/initiatives.001.m.html",
                     "title": "2013"
                 },
                 {
                     "id": "003",
                     "link": "",
                     "content_url_desktop": "./test/inner_page/initiatives.001.html",
-                    "content_url_mobile": "./test/inner_page/initiatives.001.html",
+                    "content_url_mobile": "./test/inner_page/initiatives.001.m.html",
                     "title": "2014"
                 },
                 {
                     "id": "004",
                     "link": "",
                     "content_url_desktop": "./test/inner_page/initiatives.001.html",
-                    "content_url_mobile": "./test/inner_page/initiatives.001.html",
+                    "content_url_mobile": "./test/inner_page/initiatives.001.m.html",
                     "title": "2015"
                 },
                 {
                     "id": "005",
                     "link": "",
                     "content_url_desktop": "./test/inner_page/initiatives.001.html",
-                    "content_url_mobile": "./test/inner_page/initiatives.001.html",
+                    "content_url_mobile": "./test/inner_page/initiatives.001.m.html",
                     "title": "2016"
                 },
                 {
                     "id": "006",
                     "link": "",
                     "content_url_desktop": "./test/inner_page/initiatives.001.html",
-                    "content_url_mobile": "./test/inner_page/initiatives.001.html",
+                    "content_url_mobile": "./test/inner_page/initiatives.001.m.html",
                     "title": "2017"
                 }
             ]
@@ -763,7 +811,7 @@ window._FAKE_DATA_ =
                 {
                     "id": "001",
                     "date": "2017-09-13",
-                    "title": "balabalalala",
+                    "title": "balabalalala afaf asdfsa fadsf asf sadf sadf sadf sadf saf saf sadf sdaf sdafsad fsaf sadf sdaf sda fsadf sadf saf sadsad saf",
                     "file_size": "1.2mb",
                     "file_url": "http://xxx.xx/file/download/001.pdf"
                 },

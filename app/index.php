@@ -1,9 +1,13 @@
 <?php
 
-$title = 'fake title';
-$keyword = 'fake keywords';
-$description = 'fake description';
-$url = 'http://example.com/';
+$siteName = '';
+$serviceEmail = '';
+$gaCode = '';
+$copyRight = 'Copyright 2017 APEC SME Monitor. All Rights Reserved';
+$metaTitle = '';
+$metaKeyword = '';
+$metaDescription = '';
+$metaUrl = '';
 
 $test_hosts = array("local.savorks.com");
 if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
@@ -15,15 +19,15 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <title><?=$title?></title>
+    <title><?=$siteName?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
 
-    <meta property="og:title" content="<?=$title?>" />
-    <meta property="og:keyword" content="<?=$keyword?>" />
+    <meta property="og:title" content="<?=$metaTitle?>" />
+    <meta property="og:keyword" content="<?=$metaKeyword?>" />
     <meta property="og:type" content="government" />
-    <meta property="og:url" content="<?=$url?>" />
-    <meta property="og:description" content="<?=$description?>" />
+    <meta property="og:url" content="<?=$metaUrl?>" />
+    <meta property="og:description" content="<?=$metaDescription?>" />
 
     <link rel="stylesheet" href="styles/main.css">
 
@@ -35,369 +39,385 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
     <div id="invisible-container"></div>
 
     <div id="scene-container">
-    <!--<div id="scene-container" class="fading">-->
+
+        <div id="top-bleed"></div>
 
         <div id="inner-page" class="hide-mode">
 
-            <div class="inner-page-head">
+                <div class="inner-page-head">
 
-                <div class="title">Latest News</div>
-                <div class="leftline"></div>
-
-            </div>
-
-            <div class="loading-icon hide-mode"></div>
-
-            <div class="content">
-
-                <div id="initiatives-inner-page" class="inner-page-content-container">
-
-                    <div class="btn-back"><div class="arrow"></div></div>
-                    <div class="spacer"></div>
+                    <div class="title">Latest News</div>
+                    <div class="leftline"></div>
 
                 </div>
 
-                <div id="news-inner-page" class="inner-page-content-container">
+                <div class="loading-icon hide-mode"></div>
 
-                    <div class="btn-back"><div class="arrow"></div></div>
-                    <div class="spacer"></div>
+                <div class="content">
 
-                </div>
+                    <div id="initiatives-inner-page" class="inner-page-content-container">
 
-                <div id="publication-inner-page" class="inner-page-content-container">
-
-                    <div class="table-container">
-
-
-                        <table class="content-table type-Monitor">
-
-                            <tr>
-                                <th class="col-date">Year</th>
-                                <th class="col-name">Name</th>
-                                <th class="col-thumb"></th>
-                                <th class="col-description">Description</th>
-                                <th class="col-download">Download</th>
-                                <th class="col-select">Select</th>
-                            </tr>
-
-                            <tr class="sample">
-                                <td class="col-date">2017</td>
-                                <td class="col-name">APEC SME Monitor Issue 21</td>
-                                <td class="col-thumb"><div class="thumb"></div></td>
-                                <td class="col-description">This journal is intended to help  small and medium-sized enterprises catching the latest international business development, expert perspective on SME-related issues, and SME-related policies implemented in every APEC member economy</td>
-
-                                <td class="col-download">
-                                    <div class="icon"></div>
-                                    <div class="filesize">1.5mb</div>
-                                </td>
-
-                                <td class="col-select">
-
-
-
-                                    <div class="checkbox custom-checkbox">
-                                        <input type="checkbox" id="upload-checkbox" class="upload-checkbox" />
-                                        <label for="upload-checkbox"></label>
-                                    </div>
-
-                                </td>
-                            </tr>
-
-                        </table>
-
-                        <div class="type-tabs">
-
-                            <div class="tab tab-Monitor active-mode" anchor="Monitor">Monitor</div>
-                            <div class="tab tab-Collections" anchor="Collections">APEC-Collections</div>
-                            <div class="tab tab-Journals" anchor="Journals">Journals</div>
-
-                        </div>
-
-                        <div class="page-selector">
-
-                            <div class="arrow-more-prev"></div>
-                            <div class="arrow-prev"></div>
-                            <div class="arrow-next"></div>
-                            <div class="arrow-more-next"></div>
-
-                            <div class="num-pages text">999</div>
-                            <div class="text">Total: </div>
-                            <input title="" class="page-input" maxlength="3">
-                            <div class="text">Page: </div>
-
-                        </div>
-
+                        <div class="btn-back"><div class="arrow"></div></div>
+                        <div class="spacer"></div>
 
                     </div>
 
-                    <div class="btn-back"><div class="arrow"></div></div>
-                    <div class="btn-download"></div>
+                    <div id="news-inner-page" class="inner-page-content-container">
 
-                    <div class="spacer"></div>
-
-                </div>
-
-                <div id="pictures-inner-page" class="inner-page-content-container">
-
-
-                    <div class="album-detail">
-                        <div class="date">2017/5/5 Fri</div>
-                        <div class="title">2016 APEC Leaders' Declaration</div>
-                        <div class="sub-title">We recognize that micro, small and medium-sized enterprises (MSMEs) are an essential component for economies to achieve quality growth and prosperity. As sources of innovation and employment</div>
+                        <div class="btn-back"><div class="arrow"></div></div>
+                        <div class="spacer"></div>
 
                     </div>
 
-                    <div class="item-container">
+                    <div id="publication-inner-page" class="inner-page-content-container">
 
-                        <div class="item">
+                        <div class="mobile-type-tabs">
 
-                            <div class="thumb"></div>
-                            <div class="title"></div>
+
+                            <select class="type-select" title="">
+                                <option value="">Pick an option</option>
+                                <option value="Monitor">Monitor</option>
+                                <option value="Collections">APEC Collections</option>
+                                <option value="Journals">Journals</option>
+                            </select>
 
                         </div>
+
+                        <div class="table-container">
+
+
+                            <table class="content-table type-Monitor">
+
+                                <tr>
+                                    <th class="col-date">Year</th>
+                                    <th class="col-name">Name</th>
+                                    <th class="col-thumb"></th>
+                                    <th class="col-description">Description</th>
+                                    <th class="col-download">Download</th>
+                                    <th class="col-select">Select</th>
+                                </tr>
+
+                                <tr class="sample">
+                                    <td class="col-date">2017</td>
+                                    <td class="col-name">APEC SME Monitor Issue 21</td>
+                                    <td class="col-thumb"><div class="thumb"></div></td>
+                                    <td class="col-description">This journal is intended to help  small and medium-sized enterprises catching the latest international business development, expert perspective on SME-related issues, and SME-related policies implemented in every APEC member economy</td>
+
+                                    <td class="col-download">
+                                        <div class="icon"></div>
+                                        <div class="filesize">1.5mb</div>
+                                    </td>
+
+                                    <td class="col-select">
+
+
+
+                                        <div class="checkbox custom-checkbox">
+                                            <input type="checkbox" id="upload-checkbox" class="upload-checkbox" />
+                                            <label for="upload-checkbox"></label>
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                            <div class="type-tabs">
+
+                                <div class="tab tab-Monitor active-mode" anchor="Monitor">Monitor</div>
+                                <div class="tab tab-Collections" anchor="Collections">APEC-Collections</div>
+                                <div class="tab tab-Journals" anchor="Journals">Journals</div>
+
+                            </div>
+
+                            <div class="page-selector">
+
+                                <div class="arrow-more-prev"></div>
+                                <div class="arrow-prev"></div>
+                                <div class="arrow-next"></div>
+                                <div class="arrow-more-next"></div>
+
+                                <div class="num-pages text">999</div>
+                                <div class="text">Total: </div>
+                                <input title="" class="page-input" maxlength="3">
+                                <div class="text">Page: </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="btn-back"><div class="arrow"></div></div>
+                        <div class="btn-download"></div>
 
                         <div class="spacer"></div>
 
                     </div>
 
-                    <div class="btn-back"><div class="arrow"></div></div>
-                    <div class="btn-download"><div class="arrow"></div></div>
+                    <div id="pictures-inner-page" class="inner-page-content-container">
 
 
-                    <div class="spacer"></div>
-
-                </div>
-
-                <div id="download-inner-page" class="inner-page-content-container">
-
-                    <div class="table-container">
-
-                        <table class="content-table">
-
-                            <tr>
-                                <th class="col-title">Title</th>
-                                <th class="col-date">Time</th>
-                                <th class="col-download">Download</th>
-                                <th class="col-select">Select</th>
-                            </tr>
-
-                            <tr class="sample">
-                                <td class="col-title">2017</td>
-                                <td class="col-date">2016/09/16</td>
-
-                                <td class="col-download">
-                                    <div class="icon"></div>
-                                    <div class="filesize">1.5mb</div>
-                                </td>
-
-                                <td class="col-select">
-
-                                    <div class="checkbox custom-checkbox">
-                                        <input type="checkbox" id="download-checkbox" class="upload-checkbox" />
-                                        <label for="download-checkbox"></label>
-                                    </div>
-
-                                </td>
-                            </tr>
-
-                        </table>
-                        <div class="bottom-line"></div>
-
-                        <div class="page-selector">
-
-                            <div class="arrow-more-prev"></div>
-                            <div class="arrow-prev"></div>
-                            <div class="arrow-next"></div>
-                            <div class="arrow-more-next"></div>
-
-                            <div class="num-pages text">999</div>
-                            <div class="text">Total: </div>
-                            <input title="" class="page-input" maxlength="3">
-                            <div class="text">Page: </div>
+                        <div class="album-detail">
+                            <div class="date">2017/5/5 Fri</div>
+                            <div class="title">2016 APEC Leaders' Declaration</div>
+                            <div class="sub-title">We recognize that micro, small and medium-sized enterprises (MSMEs) are an essential component for economies to achieve quality growth and prosperity. As sources of innovation and employment</div>
 
                         </div>
 
+                        <div class="item-container">
+
+                            <div class="item">
+
+                                <div class="thumb"></div>
+                                <div class="title"></div>
+
+                            </div>
+
+                            <div class="spacer"></div>
+
+                        </div>
+
+                        <div class="btn-back"><div class="arrow"></div></div>
+                        <div class="btn-download"><div class="arrow"></div></div>
+
+
+                        <div class="spacer"></div>
 
                     </div>
 
-                    <div class="btn-back"><div class="arrow"></div></div>
-                    <div class="btn-download"></div>
+                    <div id="download-inner-page" class="inner-page-content-container">
 
-                    <div class="spacer"></div>
+                        <div class="table-container">
 
-                </div>
+                            <table class="content-table">
 
-            </div>
+                                <tr>
+                                    <th class="col-title">Title</th>
+                                    <th class="col-date">Time</th>
+                                    <th class="col-download">Download</th>
+                                    <th class="col-select">Select</th>
+                                </tr>
 
-        </div>
+                                <tr class="sample">
+                                    <td class="col-title">2017</td>
+                                    <td class="col-date">2016/09/16</td>
 
-        <div id="banner" class="section" anchor="/Home">
-            <div class="content"></div>
-        </div>
+                                    <td class="col-download">
+                                        <div class="icon"></div>
+                                        <div class="filesize">1.5mb</div>
+                                    </td>
 
-        <div id="news" class="section" anchor="/News">
+                                    <td class="col-select">
 
-            <div class="section-head">
+                                        <div class="checkbox custom-checkbox">
+                                            <input type="checkbox" id="download-checkbox" class="upload-checkbox" />
+                                            <label for="download-checkbox"></label>
+                                        </div>
 
-                <div class="title">Latest News</div>
-                <div class="underline"></div>
-                <div class="sub-title">Viet Nam has opened its frist meeting of  offficials from the 21 APEC member economies</div>
+                                    </td>
+                                </tr>
 
-            </div>
+                            </table>
+                            <div class="bottom-line"></div>
 
-            <div class="content">
+                            <div class="page-selector">
 
-                <div class="item-container">
+                                <div class="arrow-more-prev"></div>
+                                <div class="arrow-prev"></div>
+                                <div class="arrow-next"></div>
+                                <div class="arrow-more-next"></div>
 
-                    <!-- check -->
+                                <div class="num-pages text">999</div>
+                                <div class="text">Total: </div>
+                                <input title="" class="page-input" maxlength="3">
+                                <div class="text">Page: </div>
 
-                    <div class="item">
-                        <div class="thumb"></div>
-                        <div class="date">2017/3/10</div>
-                        <div class="title">2016 APEC Leaders' Declaration</div>
-                        <div class="sub-title">Aiming to unleash the potential of SMEs to boost Asia-Pacific economic growth</div>
-                    </div>
+                            </div>
 
-                </div>
 
-                <div class="page-dot-container">
-                    <!--<div class="dot"></div>-->
-                </div>
+                        </div>
 
-                <div class="arrow-prev hide-mode"></div>
-                <div class="arrow-next hide-mode"></div>
+                        <div class="btn-back"><div class="arrow"></div></div>
+                        <div class="btn-download"></div>
 
-            </div>
+                        <div class="spacer"></div>
 
-        </div>
-
-        <div id="events" class="section" anchor="/Events">
-
-            <div class="section-head">
-
-                <div class="title">Events</div>
-                <div class="underline"></div>
-                <div class="sub-title">Viet Nam has opened its frist meeting of  offficials from the 21 APEC member economies</div>
-
-            </div>
-
-            <div class="content">
-
-                <div class="item-container">
-
-                    <div class="item">
-                        <div class="thumb"></div>
-                        <div class="date"></div>
-                        <div class="title"></div>
-                        <div class="sub-title"></div>
-                    </div>
-
-                </div>
-
-                <div class="page-dot-container">
-                </div>
-
-                <div class="arrow-prev hide-mode"></div>
-                <div class="arrow-next hide-mode"></div>
-
-            </div>
-
-        </div>
-
-        <div id="publication" class="section" anchor="/Publication">
-
-            <div class="section-head">
-
-                <div class="title">Publication</div>
-                <div class="underline"></div>
-                <div class="sub-title">Viet Nam has opened its frist meeting of  offficials from the 21 APEC member economies</div>
-
-            </div>
-
-            <div class="content">
-
-                <div class="item-container">
-
-                    <div class="item">
-                        <div class="thumb"></div>
-                        <div class="date"></div>
-                        <div class="title"></div>
-                        <div class="sub-title"></div>
                     </div>
 
                 </div>
 
-                <div class="page-dot-container">
-                </div>
-
-                <div class="arrow-prev hide-mode"></div>
-                <div class="arrow-next hide-mode"></div>
-
-            </div>
-
         </div>
 
-        <div id="pictures" class="section" anchor="/Pictures">
+        <div id="main-page">
 
-            <div class="section-head">
-
-                <div class="title">Pictures</div>
-                <div class="underline"></div>
-                <div class="sub-title">Viet Nam has opened its frist meeting of  offficials from the 21 APEC member economies</div>
-
+            <div id="banner" class="section" anchor="/Home">
+                <div class="content"></div>
             </div>
 
-            <div class="content">
+            <div id="news" class="section" anchor="/News">
 
-                <div class="item-container">
+                <div class="section-head">
 
-                    <div class="item">
-                        <div class="thumb"></div>
-                        <div class="date"></div>
-                        <div class="title"></div>
-                        <div class="sub-title"></div>
+                    <div class="title">Latest News</div>
+                    <div class="underline"></div>
+<!--                    <div class="sub-title">Viet Nam has opened its frist meeting of  offficials from the 21 APEC member economies</div>-->
+
+                </div>
+
+                <div class="content">
+
+                    <div class="item-container">
+
+                        <!-- check -->
+
+                        <div class="item">
+                            <div class="thumb"></div>
+                            <div class="date">2017/3/10</div>
+                            <div class="title">2016 APEC Leaders' Declaration</div>
+                            <div class="sub-title">Aiming to unleash the potential of SMEs to boost Asia-Pacific economic growth</div>
+                        </div>
+
                     </div>
 
-                </div>
-
-                <div class="page-dot-container">
-                </div>
-
-                <div class="arrow-prev hide-mode"></div>
-                <div class="arrow-next hide-mode"></div>
-
-            </div>
-
-        </div>
-
-        <div id="videos" class="section" anchor="/Videos">
-
-            <div class="section-head">
-
-                <div class="title">Videos</div>
-                <div class="underline"></div>
-
-            </div>
-
-            <div class="content">
-
-                <div class="item-container">
-
-                    <div class="item">
-                        <div class="thumb"></div>
-                        <div class="title"></div>
+                    <div class="page-dot-container">
+                        <!--<div class="dot"></div>-->
                     </div>
 
-                </div>
+                    <div class="arrow-prev hide-mode"></div>
+                    <div class="arrow-next hide-mode"></div>
 
-                <div class="page-dot-container">
                 </div>
-
-                <div class="arrow-prev hide-mode"></div>
-                <div class="arrow-next hide-mode"></div>
 
             </div>
 
+            <div id="events" class="section" anchor="/Events">
+
+                <div class="section-head">
+
+                    <div class="title">Events</div>
+                    <div class="underline"></div>
+<!--                    <div class="sub-title">Viet Nam has opened its frist meeting of  offficials from the 21 APEC member economies</div>-->
+
+                </div>
+
+                <div class="content">
+
+                    <div class="item-container">
+
+                        <div class="item">
+                            <div class="thumb"></div>
+                            <div class="date"></div>
+                            <div class="title"></div>
+                            <div class="sub-title"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="page-dot-container">
+                    </div>
+
+                    <div class="arrow-prev hide-mode"></div>
+                    <div class="arrow-next hide-mode"></div>
+
+                </div>
+
+            </div>
+
+            <div id="publication" class="section" anchor="/Publication">
+
+                <div class="section-head">
+
+                    <div class="title">Publication</div>
+                    <div class="underline"></div>
+<!--                    <div class="sub-title">Viet Nam has opened its frist meeting of  offficials from the 21 APEC member economies</div>-->
+
+                </div>
+
+                <div class="content">
+
+                    <div class="item-container">
+
+                        <div class="item">
+                            <div class="thumb"></div>
+                            <div class="date"></div>
+                            <div class="title"></div>
+                            <div class="sub-title"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="page-dot-container">
+                    </div>
+
+                    <div class="arrow-prev hide-mode"></div>
+                    <div class="arrow-next hide-mode"></div>
+
+                </div>
+
+            </div>
+
+            <div id="pictures" class="section" anchor="/Pictures">
+
+                <div class="section-head">
+
+                    <div class="title">Pictures</div>
+                    <div class="underline"></div>
+<!--                    <div class="sub-title">Viet Nam has opened its frist meeting of  offficials from the 21 APEC member economies</div>-->
+
+                </div>
+
+                <div class="content">
+
+                    <div class="item-container">
+
+                        <div class="item">
+                            <div class="thumb"></div>
+                            <div class="date"></div>
+                            <div class="title"></div>
+                            <div class="sub-title"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="page-dot-container">
+                    </div>
+
+                    <div class="arrow-prev hide-mode"></div>
+                    <div class="arrow-next hide-mode"></div>
+
+                </div>
+
+            </div>
+
+            <div id="videos" class="section" anchor="/Videos">
+
+                <div class="section-head">
+
+                    <div class="title">Videos</div>
+                    <div class="underline"></div>
+
+                </div>
+
+                <div class="content">
+
+                    <div class="item-container">
+
+                        <div class="item">
+                            <div class="thumb"></div>
+                            <div class="title"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="page-dot-container">
+                    </div>
+
+                    <div class="arrow-prev hide-mode"></div>
+                    <div class="arrow-next hide-mode"></div>
+
+                </div>
+
+            </div>
         </div>
 
         <div id="links">
@@ -440,9 +460,10 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
                     <div class="bottom-line"></div>
                     <div class="logo"></div>
                     <div class="detail">
-                        <div>contact us</div>
-                        <div>TEL: +88602-2586-5000 ext. 562</div>
-                        <div>Email: <a href="mailto:d33283@tier.org.tw" target="_blank" >d33283@tier.org.tw</a></div>
+                        <div class="row1">E-MAIL</div>
+                        <div class="row2"><a href="mailto:d32438@tier.org.tw" target="_blank" >d32438@tier.org.tw</a></div>
+                        <div class="row3">AUTHORIZATION METHOD</div>
+                        <div class="row4">& SCOPE</div>
                     </div>
 
                     <div class="fb-page-sample">
@@ -450,7 +471,7 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
 
                     </div>
 
-                    <div class="copy-right">Copyright 2017 APEC SME Monitor. All Rights Reserved</div>
+                    <div class="copy-right"><?=$copyRight?></div>
 
 
             </div>
@@ -508,6 +529,28 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
 
             <div class="baseline"></div>
 
+        </div>
+
+        <div class="mobile-menu-icon"></div>
+
+        <div class="mobile-menu-part">
+<!--            <div class="wrapper">-->
+            <div class="top-block"></div>
+                <div class="mobile-menu-button" anchor="/Home">Home</div>
+                <div class="mobile-menu-button btn-initiatives" anchor="/Initiatives">Initiatives</div>
+                <div class="mobile-drop-menu">
+<!--                    <div class="item">2015</div>-->
+<!--                    <div class="item">2016</div>-->
+<!--                    <div class="item">2017</div>-->
+                </div>
+                <div class="mobile-menu-button" anchor="/News">News Release</div>
+                <div class="mobile-menu-button" anchor="/Events">Events</div>
+                <div class="mobile-menu-button" anchor="/Publication">Publications</div>
+                <div class="mobile-menu-button" anchor="/Pictures">Pictures</div>
+                <div class="mobile-menu-button" anchor="/Videos">Videos</div>
+                <div class="mobile-menu-button" anchor="/Download">Download</div>
+                <a class="mobile-menu-button btn-contact" href="mailto:d32438@tier.org.tw" target="_blank">Contact us</a>
+<!--            </div>-->
         </div>
 
     </div>

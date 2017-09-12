@@ -37,9 +37,27 @@
 
                 $dom.on(_CLICK_, function()
                 {
-                    self.changeContent(anchor);
+                    //self.changeContent(anchor);
+
+                    Hash.to("/Publication/" + anchor);
                 });
             });
+
+            $doms.mobileTypeSelect = $doms.container.find('.type-select').on('change', function()
+            {
+
+                var dom = $doms.mobileTypeSelect[0];
+
+                var value = dom.options[dom.selectedIndex].value;
+                if(value)
+                {
+                    Hash.to("/Publication/" + value);
+                }
+
+                //console.log('value = ' + value);
+            });
+
+            $doms.mobileTypeSelect[0].selectedIndex = 0;
 
             _pageSelector = new PageSelector($doms.container.find(".page-selector"), function(newPageIndex)
             {
@@ -86,6 +104,10 @@
             _currentType = contentType;
 
             var obj = _loadedData[_currentType];
+
+            //console.log(obj.index);
+
+            $doms.mobileTypeSelect[0].selectedIndex = obj.index;
 
             updateTab();
 
@@ -140,14 +162,15 @@
                         var list = response.data_list,
                             numPages = Math.ceil(list.length / _pageSize);
 
+                        i++;
+
                         _loadedData[contentType] =
                         {
                             pageIndex: 0,
                             numPages: numPages,
-                            dataList: list
+                            dataList: list,
+                            index: i
                         };
-
-                        i++;
                         if(i<_typeArray.length)
                         {
                             loadOne();

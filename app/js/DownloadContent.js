@@ -82,7 +82,7 @@
 
                 if(pageIndex === oldPageIndex)
                 {
-                    console.log('same index: ' + pageIndex);
+                    //console.log('same index: ' + pageIndex);
                     return;
                 }
             }

@@ -63,6 +63,21 @@
         {
             var self = this;
 
+            var i,
+                data,
+                $item,
+                vp = Main.viewport;
+
+            for(i=0;i<self._dataList.length;i++)
+            {
+                data = self._dataList[i];
+                $item = self._itemList[i];
+
+                var imgUrl = vp.index === 0? data.thumb_mobile: data.thumb_desktop;
+
+                $item.find(".thumb").css('background-image', 'url('+imgUrl+')');
+            }
+
             var pageSize = self._pageSize[Main.viewport.index];
 
             self._dotPager.reset(pageSize, function(newPageIndex)

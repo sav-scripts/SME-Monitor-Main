@@ -20,7 +20,7 @@ var response = {
                 "img": "http://xxx.xx/photo/picture/001.jpg",     // 圖片原圖網址
 
                 "thumb_desktop": "http://xxx.xx/xx.jpg",  // 桌機板縮圖 (270 x 200)
-                "thumb_mobile": "http://xxx.xx/xx.m.jpg",  // 手機板縮圖 (448 x 331)
+                "thumb_mobile": "http://xxx.xx/xx.m.jpg",  // 手機板縮圖 (448 x 332)
 
                 "date": "2017-09-13",               // 日期
                 "title": "balabalalala",            // 主標

@@ -113,54 +113,49 @@
 
             MainPage.close(function()
             {
-                Menu.setFocusTo(classHash);
 
-                var tl0 = new TimelineMax;
-                tl0.set($doms.container, {autoAlpha:1, height:0, paddingTop: 0});
-                tl0.to($doms.container,.4, {height: 386, paddingTop:109});
 
-                tl0.add(function()
+
+            });
+
+            Menu.setFocusTo(classHash);
+
+            var tl0 = new TimelineMax;
+            tl0.set($doms.container, {autoAlpha:1, height:0});
+            tl0.to($doms.container,.5, {height: 386});
+
+            tl0.add(function()
+            {
+
+                $doms.loadingIcon.toggleClass('hide-mode', false);
+
+                pageClass.loadContent(contentId, function($contentDom)
                 {
+                    //console.log('load done');
 
-                    $doms.loadingIcon.toggleClass('hide-mode', false);
+                    $doms.loadingIcon.toggleClass('hide-mode', true);
 
-                    pageClass.loadContent(contentId, function($contentDom)
+
+
+
+                    $doms.content.prepend($contentDom);
+
+                    var contentHeight = $doms.content.height(),
+                        newHeight = $doms.head.height() + contentHeight;
+
+
+                    TweenMax.killTweensOf($doms.container);
+
+                    var tl = new TimelineMax;
+                    tl.set($doms.content, {autoAlpha:0});
+                    tl.to($doms.container,.4,{height: newHeight},.5);
+                    tl.to($doms.content,.4, {autoAlpha:1},.5);
+
+                    tl.add(function()
                     {
-                        //console.log('load done');
-
-                        $doms.loadingIcon.toggleClass('hide-mode', true);
-
-
-
-
-                        $doms.content.prepend($contentDom);
-
-                        var contentHeight = $doms.content.height(),
-                            newHeight = $doms.head.height() + contentHeight;
-                        //newHeight = $doms.head.height() + contentHeight + _bottomBleed[Main.viewport.index];
-
-                        //console.log("new height = " + newHeight);
-
-                        //$doms.container.css('height', newHeight + 'px');
-
-                        MainPage.closeSections();
-
-
-                        TweenMax.killTweensOf($doms.container);
-
-                        var tl = new TimelineMax;
-                        tl.set($doms.content, {autoAlpha:0});
-                        tl.to($doms.container,.4,{height: newHeight},.5);
-                        tl.to($doms.content,.4, {autoAlpha:1},.5);
-
-                        tl.add(function()
-                        {
-                            Hash.startListening();
-                        });
+                        Hash.startListening();
                     });
                 });
-
-
             });
         },
 
@@ -182,12 +177,12 @@
 
             //$doms.container.css('height', '');
 
-            MainPage.openSections();
+            //MainPage.openSections();
 
             TweenMax.killTweensOf($doms.container);
 
             var tl0 = new TimelineMax;
-            tl0.to($doms.container,.5, {height: 0, paddingTop:0});
+            tl0.to($doms.container,.5, {height: 0});
             tl0.set($doms.container, {autoAlpha:0});
             tl0.add(function()
             {
@@ -196,12 +191,12 @@
                     _pageClass.clearContent();
                     _pageClass = null;
                 }
+            });
 
-                MainPage.open(targetMainPageSection, function()
-                {
-                    Hash.startListening();
-                });
 
+            MainPage.open(targetMainPageSection, function()
+            {
+                Hash.startListening();
             });
         },
 
@@ -210,7 +205,7 @@
             Hash.stopListening();
 
             var tl0 = new TimelineMax;
-            tl0.to($doms.container,.5, {height: 0, paddingTop:0});
+            tl0.to($doms.container,.5, {height: 0});
             tl0.set($doms.container, {autoAlpha:0});
             tl0.add(function()
             {
@@ -228,6 +223,37 @@
                 self.open(classHash, pageClass, contentId);
 
             });
+        },
+
+        resize: function()
+        {
+            var vp = Main.viewport;
+
+            if(vp.changed)
+            {
+                var key,
+                    pageClass;
+                for(key in _hashDic)
+                {
+                    pageClass = _hashDic[key];
+                    if(pageClass.resize) pageClass.resize.call();
+                }
+
+                self.Banners.resize();
+
+                self.updateContainerHeight();
+            }
+        },
+
+        updateContainerHeight: function()
+        {
+            if(_isOpening)
+            {
+                var contentHeight = $doms.content.height(),
+                    newHeight = $doms.head.height() + contentHeight;
+
+                TweenMax.to($doms.container,.4,{height: newHeight});
+            }
         }
     };
 

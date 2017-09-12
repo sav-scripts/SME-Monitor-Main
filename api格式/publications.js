@@ -28,7 +28,7 @@ var response = {
 
                 "thumb_desktop": "http://xxx.xx/xx.jpg",        // 桌機板縮圖, 標準 (270 x 200)
                 "thumb_small_desktop": "http://xxx.xx/xx.jpg",  // 桌機板縮圖, 小 (110 x 81)
-                "thumb_mobile": "http://xxx.xx/xx.m.jpg",       // 手機板縮圖 (448 x 331)
+                "thumb_mobile": "http://xxx.xx/xx.m.jpg",       // 手機板縮圖 (448 x 332)
 
                 "file_size": "1.2mb",                   // 檔案大小
                 "file_url": "http://xxx.xx/file/publication/001.pdf"     // 檔案網址

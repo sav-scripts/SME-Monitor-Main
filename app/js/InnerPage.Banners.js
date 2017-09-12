@@ -20,7 +20,7 @@
                     content: $doms.container.find(".content")
                 });
 
-            ApiProxy.callApi('banners', {}, true, function(response)
+            ApiProxy.callApi('banner', {}, false, function(response)
             {
                 if(response.error)
                 {
@@ -63,13 +63,33 @@
         stopLoop: function()
         {
             _isLooping = false;
+        },
+
+        resize: function()
+        {
+            if(!_isInit) return;
+
+            var i,
+                vp = Main.viewport,
+                obj;
+
+            for(i=0;i<_dataList.length;i++)
+            {
+                obj = _dataList[i];
+                if(obj.item)
+                {
+                    obj.item.src = vp.index === 0? obj.image_m: obj.image;
+                }
+            }
         }
     };
 
     function requestItem(index, onReady)
     {
+        var vp = Main.viewport;
+
         var obj = _dataList[index],
-            imageUrl = obj.image;
+            imageUrl = vp.index == 0? obj.image_m: obj.image;
 
         if(obj.item)
         {
@@ -77,9 +97,12 @@
         }
         else
         {
+
             var img = new Image;
             img.onload = function()
             {
+                img.onload = null;
+
                 img.className = "banner-item";
                 obj.item = img;
                 onReady.call(null, obj.item);

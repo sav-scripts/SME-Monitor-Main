@@ -4,7 +4,11 @@
         _isInit = false,
         _dataList = null,
         _dataDic = {},
-        _loadedDom;
+
+        _loadingXHR,
+        _innerPageContentId,
+        _loadedInnerPageDom,
+        _onInnerPageLoaded;
 
     var self = window.InnerPage.Initiatives =
     {
@@ -56,28 +60,69 @@
             return false;
         },
 
+        reloadInnerPageContent: function()
+        {
+            if(_innerPageContentId)
+            {
+                //console.log("loading content id: " + _innerPageContentId);
+
+                if(_loadedInnerPageDom)
+                {
+                    $(_loadedInnerPageDom).detach();
+                }
+
+                if(_loadingXHR)
+                {
+                    _loadingXHR.abort();
+                }
+
+                var vp = Main.viewport,
+                    dataObj = _dataDic[_innerPageContentId],
+                    contentUrl = vp.index === 0? dataObj.content_url_mobile: dataObj.content_url_desktop;
+
+                var dom = _loadedInnerPageDom = document.createElement('div');
+                $doms.innerPageContainer.prepend(dom);
+
+                _loadingXHR = $.ajax({
+                    url: contentUrl
+                }).done(function(data)
+                {
+                    $(dom).html(data);
+
+                    InnerPage.updateContainerHeight();
+
+                    if(_onInnerPageLoaded)
+                    {
+
+                        _onInnerPageLoaded.call(null, $doms.innerPageContainer);
+                        _onInnerPageLoaded = null;
+                    }
+
+                }).fail(function()
+                {
+                    alert('load content fail for['+self.name+'], id: ' + _innerPageContentId);
+                });
+            }
+        },
+
         loadContent: function(contentId, cb)
         {
-            var dataObj = _dataDic[contentId],
-                contentUrl = dataObj.content_url_desktop;
 
-            var dom = document.createElement('div');
+            _innerPageContentId = contentId;
+            _onInnerPageLoaded = cb;
 
-            $(dom).load(contentUrl, function()
-            {
-                _loadedDom = dom;
-
-                $doms.innerPageContainer.prepend(dom);
-                cb.call(null, $doms.innerPageContainer);
-            });
+            self.reloadInnerPageContent();
         },
 
         clearContent: function()
         {
-            if(_loadedDom)
+            _innerPageContentId = null;
+
+
+            if(_loadedInnerPageDom)
             {
-                $(_loadedDom).detach();
-                _loadedDom = null;
+                $(_loadedInnerPageDom).detach();
+                _loadedInnerPageDom = null;
             }
 
             $doms.innerPageContainer.detach();
@@ -85,6 +130,13 @@
 
         resize: function()
         {
+            if(!_isInit) return;
+
+            var vp = Main.viewport;
+            if(vp.changed)
+            {
+                self.reloadInnerPageContent();
+            }
         }
     };
 

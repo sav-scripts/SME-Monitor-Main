@@ -31,16 +31,17 @@
 
         init: function()
         {
-            if( window.location.host == "local.savorks.com" || window.location.host == "socket.savorks.com" || window.location.host == self.testDomain)
+            //if( window.location.host == "local.savorks.com" || window.location.host == "socket.savorks.com" || window.location.host == self.testDomain)
+            if( window.location.host == "local.savorks.com" || window.location.host == "socket.savorks.com")
             {
                 $.extend(self.settings, self.localSettings);
                 Main.settings.isLocal = true;
 
-                //if(Utility.urlParams.usefakedata == '1') Main.settings.useFakeData = true;
+                if(Utility.urlParams.usefakedata == '1') Main.settings.useFakeData = true;
                 //if(Utility.urlParams.debug == '1') Main.settings.debug = true;
 
-                Main.settings.useFakeData = true;
-                Main.settings.debug = true;
+                //Main.settings.useFakeData = true;
+                //Main.settings.debug = true;
             }
 
 
@@ -69,6 +70,7 @@
 
         vp.changed = oldIndex !== vp.index;
 
+        Menu.resize();
         MainPage.resize();
     }
 

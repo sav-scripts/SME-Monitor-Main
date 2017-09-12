@@ -17,7 +17,7 @@ var response = {
         [
             {
                 "thumb_desktop": "http://xxx.xx/xx.jpg",  // 桌機板縮圖 (270 x 200)
-                "thumb_mobile": "http://xxx.xx/xx.m.jpg",  // 手機板縮圖 (448 x 331)
+                "thumb_mobile": "http://xxx.xx/xx.m.jpg",  // 手機板縮圖 (448 x 332)
                 "date": "2017-09-13",               // 日期
                 "title": "balabalalala",            // 主標
                 "sub_title": "lababababa",          // 次標

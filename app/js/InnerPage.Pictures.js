@@ -5,7 +5,8 @@
         _dataList = null,
         _itemLister = null,
         _dataDic,
-        _downloadUrl;
+        _downloadUrl,
+        _innerPageItemList;
 
     var self = window.InnerPage.Pictures =
     {
@@ -109,13 +110,16 @@
                 $doms.albumDetail.find(".sub-title").text(albumData.sub_title);
 
                 _downloadUrl = response.download_url;
+
                 buildInnerPage(response.data_list);
+
                 cb.call(null, $doms.innerPageContainer);
             });
         },
 
         clearContent: function()
         {
+            _innerPageItemList = null;
             $doms.innerPageItemContainer.empty();
             $doms.innerPageContainer.detach();
         },
@@ -128,6 +132,7 @@
             if(vp.changed)
             {
                 _itemLister.resize();
+                reloadInnerPageThumbs();
             }
         }
     };
@@ -162,10 +167,14 @@
     {
         var i;
 
+        _innerPageItemList = [];
+
         for(i=0;i<pictureList.length;i++)
         {
             generateInnerPageItem(pictureList[i]);
         }
+
+        reloadInnerPageThumbs();
 
         $doms.innerPageItemContainer.append($doms.innerPageSpacer);
 
@@ -174,10 +183,30 @@
     function generateInnerPageItem(obj)
     {
         var $item = $doms.innerPageItemSample.clone();
-        $item.find(".thumb").css("background-image", "url("+obj.thumb_desktop+")");
         $item.find(".title").text(obj.filename);
+        $item._data = obj;
+
+        _innerPageItemList.push($item);
 
         $doms.innerPageItemContainer.append($item);
+    }
+
+    function reloadInnerPageThumbs()
+    {
+        if(_innerPageItemList)
+        {
+            var i,
+                $item,
+                thumbUrl;
+
+            for(i=0;i<_innerPageItemList.length;i++)
+            {
+                $item = _innerPageItemList[i];
+
+                thumbUrl = Main.viewport.index === 0? $item._data.thumb_mobile: $item._data.thumb_desktop;
+                $item.find(".thumb").css("background-image", "url("+thumbUrl+")");
+            }
+        }
     }
 
 }());

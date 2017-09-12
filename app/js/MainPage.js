@@ -8,7 +8,7 @@
             topPartHeight_1: 72,
             headerHeight_0: 99,
             headerHeight_1: 99,
-            menuHeight_0: 32,
+            menuHeight_0: 100,
             menuHeight_1: 32,
             topPartHeight: 0,
             headerHeight: 0,
@@ -24,6 +24,7 @@
         {
             $doms =
             {
+                container: $("#main-page"),
                 header: $("#header"),
                 news: $("#news"),
                 events: $("#events"),
@@ -124,6 +125,11 @@
             {
                 var targetTop = $(dom).offset().top - _settings.menuHeight;
 
+                if(anchor === '/Home')
+                {
+                    targetTop = 0;
+                }
+
                 //console.log(target);
                 ScrollListener.scrollTo(targetTop, cb);
 
@@ -144,44 +150,61 @@
 
                 //$doms.sections.toggleClass('close-mode', true);
 
+
+
+                //console.log($doms.container.height());
+                $doms.container.css('height', '').css('overflow', 'hidden');
+
+                var containerHeight = $doms.container.height();
+
+                ScrollListener.scrollTo(0);
+
                 var tl = new TimelineMax;
 
-                tl.to($doms.sections,.5, {autoAlpha:0});
+                tl.set($doms.container, {height: containerHeight});
+
+                //tl.to($doms.sections,.5, {autoAlpha:0});
+                tl.to($doms.container,.5, {autoAlpha:0});
+
+                tl.to($doms.container,.5, {height: 0});
 
                 tl.add(function()
                 {
-                    ScrollListener.scrollTo(0, function()
-                    {
-                        cb.call();
-                    });
-                }, 0);
+                    cb.call();
+                });
             }
-        },
-
-        closeSections: function()
-        {
-            $doms.sections.toggleClass('close-mode', true);
-        },
-
-        openSections: function()
-        {
-            $doms.sections.toggleClass('close-mode', false);
         },
 
         open: function(targetSection, cb)
         {
-            self.toSection(targetSection, function()
-            {
-                Menu.setFocusTo(targetSection);
+            var oldContainerHeight = $doms.container.height();
 
-                var tl = new TimelineMax;
-                tl.to($doms.sections,.5, {autoAlpha:1});
-                tl.add(function()
-                {
-                    _isInnerPageMode = false;
-                    InnerPage.Banners.startLoop();
-                    if(cb) cb.call();
-                });
+            $doms.container.css('height', '').css('overflow', 'hidden');
+
+            var containerHeight = $doms.container.height();
+
+            //console.log('old: ' + oldContainerHeight);
+            //console.log("new: " + containerHeight);
+
+            var tl = new TimelineMax;
+            tl.set($doms.container, {height: oldContainerHeight});
+            tl.to($doms.container,.5, {height: containerHeight, ease:Power1.easeOut});
+            tl.add(function()
+            {
+                $doms.container.css('height', '').css('overflow', '');
+
+                Menu.setFocusTo(targetSection);
+                self.toSection(targetSection);
+            });
+
+            tl.to($doms.container,.5, {autoAlpha:1});
+
+            tl.add(function()
+            {
+
+                _isInnerPageMode = false;
+                InnerPage.Banners.startLoop();
+                if(cb) cb.call();
             });
         },
 
@@ -194,7 +217,8 @@
             _settings.headerHeight = _settings["headerHeight_" + vp.index];
             _settings.menuHeight = _settings["menuHeight_" + vp.index];
 
-            InnerPage.News.resize();
+            //InnerPage.News.resize();
+            InnerPage.resize();
         }
     };
 

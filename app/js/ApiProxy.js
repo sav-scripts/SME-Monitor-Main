@@ -6,7 +6,8 @@
     var _fakeData = window._FAKE_DATA_;
 
     var _apiExtension = "",
-        _apiPath = "../api/";
+        _apiPath = "http://admin.apac.jktarots.com:9454/api/",
+        _dataType = "jsonp";
 
     window.ApiProxy =
     {
@@ -20,8 +21,10 @@
                 if(!fakeDataName || fakeDataName === true) fakeDataName = apiName;
             }
 
-            if(_fakeData && Main.settings.useFakeData && fakeDataName)
+            if(_fakeData && (Main.settings.useFakeData || fakeDataName))
             {
+                //console.log(fakeDataName);
+                if(Main.settings.useFakeData && fakeDataName === false) fakeDataName = apiName;
                 //if(fakeDataName === true) fakeDataName = apiName;
 
                 var response = _fakeData[fakeDataName];
@@ -33,12 +36,17 @@
             }
             else
             {
+                //apiUrl = "http://admin.apac.jktarots.com:9454/api/banner?type=jsonp";
+                if(_dataType === "jsonp") apiUrl += "?type=jsonp";
+
+                //console.log(apiUrl);
+
                 $.ajax
                 ({
                     url: apiUrl,
                     type: method,
                     data: params,
-                    dataType: "json"
+                    dataType: _dataType
                 })
                 .done(complete)
                 .fail(function ()
