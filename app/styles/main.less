@@ -253,21 +253,10 @@ body{
     @height; @section-head-height: @pc-section-head-height; @close-mode-height: 0;
     @image-width: 270px; @image-height: 200px; @border-size: 0; @num-cols: 3; @half-gap: 20px; )
 {
-//    @duration: .4s;
-
-//    transition: height @duration ease-out, visibility .0s, padding-top @duration ease-out;
-
-//    height: @height;
 
     overflow: hidden;
 
-//    &.close-mode{
-//
-//        transition: height @duration ease-out, visibility .0s linear @duration;
-//        height: @close-mode-height;
-//        padding-top: 0;
-//        visibility: hidden;
-//    }
+    background-position: center top;
 
     .section-head{
 
@@ -326,7 +315,7 @@ body{
         position: relative;
         width: 100%;
 
-        height: @height - @section-head-height;
+//        min-height: @height - @section-head-height;
         padding-top: @section-head-height;
 
         .item-container{
@@ -341,11 +330,15 @@ body{
 
             @w: (@thumb-width + (@half-gap * 2)) * @num-cols;
 
-            position: absolute;
+            position: relative;
             width: @w;
-            left:50%;
-            top:231px;
-            margin-left: -@w * .5;
+//            left:50%;
+//            min-height: @height - @section-head-height - 220px;
+            min-height: 340px;
+            margin-top:231px - @section-head-height;
+//            margin-left: -@w * .5;
+            margin-left: auto;
+            margin-right: auto;
 
             .item{
                 position: relative;
@@ -355,6 +348,8 @@ body{
 
                 margin-left: @half-gap;
                 margin-right: @half-gap;
+
+
 
                 float: left;
 
@@ -401,13 +396,18 @@ body{
         }
 
         .page-dot-container{
-            position: absolute;
+            position: relative;
+
+            @size: 24px;
+            @num-cols: 20;
+
 
             text-align: center;
-            width: 100%;
-            top:600px;
+            width: @size * @num-cols;
+            margin: 40px auto;
 
             .dot{
+
                 position: relative;
                 display: inline-block;
                 width: 20px;
@@ -1386,13 +1386,14 @@ body{
 
     position: relative;
     width: 100%;
-
+    height: 400px;
 
     overflow: hidden;
 
     background-color: #222222;
 
-    .section-normalize(400px;0;);
+//    .section-normalize(400px;0;);
+
 
 //    padding-top: @pc-top-part-height + @pc-menu-height;
 
@@ -1491,7 +1492,10 @@ body{
         z-index: 2;
 
         .item-container{
-            top: 118px;
+            top: 0;
+            margin-top: 20px;
+
+            min-height: 270px;
 
             .item{
                 .title{
@@ -1504,7 +1508,7 @@ body{
             }
         }
         .page-dot-container{
-            top: 390px;
+//            top: 390px;
         }
 
         .arrow-prev{

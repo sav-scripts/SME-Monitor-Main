@@ -36,7 +36,7 @@
 
             $doms.itemSample.detach();
 
-            ApiProxy.callApi('news_release', {}, null, function(response)
+            ApiProxy.callApi('news_release', {}, false, function(response)
             {
 
                 if(response.error)
@@ -54,7 +54,7 @@
                         //console.log(dataObj.hash);
                         if(dataObj.link)
                         {
-
+                            window.open(dataObj.link, "_blank");
                         }
                         else if(dataObj.hash)
                         {
@@ -103,7 +103,8 @@
                 $doms.innerPageContainer.prepend(dom);
 
                 _loadingXHR = $.ajax({
-                    url: contentUrl
+                    url: contentUrl,
+                    dataType: 'html'
                 }).done(function(data)
                 {
                     $(dom).html(data);

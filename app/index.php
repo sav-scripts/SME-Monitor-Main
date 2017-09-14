@@ -104,8 +104,11 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
                                     <td class="col-description">This journal is intended to help  small and medium-sized enterprises catching the latest international business development, expert perspective on SME-related issues, and SME-related policies implemented in every APEC member economy</td>
 
                                     <td class="col-download">
-                                        <div class="icon"></div>
-                                        <div class="filesize">1.5mb</div>
+
+                                        <a class="download-field" target="_blank">
+                                            <div class="icon"></div>
+                                            <div class="filesize">1.5mb</div>
+                                        </a>
                                     </td>
 
                                     <td class="col-select">
@@ -203,8 +206,10 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
                                     <td class="col-date">2016/09/16</td>
 
                                     <td class="col-download">
-                                        <div class="icon"></div>
-                                        <div class="filesize">1.5mb</div>
+                                        <a class="download-field" target="_blank">
+                                            <div class="icon"></div>
+                                            <div class="filesize">1.5mb</div>
+                                        </a>
                                     </td>
 
                                     <td class="col-select">
@@ -272,10 +277,11 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
 
                         <div class="item">
                             <div class="thumb"></div>
-                            <div class="date">2017/3/10</div>
-                            <div class="title">2016 APEC Leaders' Declaration</div>
-                            <div class="sub-title">Aiming to unleash the potential of SMEs to boost Asia-Pacific economic growth</div>
+                            <div class="date"></div>
+                            <div class="title"></div>
+                            <div class="sub-title"></div>
                         </div>
+                        <div class="spacer"></div>
 
                     </div>
 
@@ -310,6 +316,7 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
                             <div class="title"></div>
                             <div class="sub-title"></div>
                         </div>
+                        <div class="spacer"></div>
 
                     </div>
 
@@ -343,6 +350,7 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
                             <div class="title"></div>
                             <div class="sub-title"></div>
                         </div>
+                        <div class="spacer"></div>
 
                     </div>
 
@@ -376,6 +384,7 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
                             <div class="title"></div>
                             <div class="sub-title"></div>
                         </div>
+                        <div class="spacer"></div>
 
                     </div>
 
@@ -406,6 +415,7 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
                             <div class="thumb"></div>
                             <div class="title"></div>
                         </div>
+                        <div class="spacer"></div>
 
                     </div>
 

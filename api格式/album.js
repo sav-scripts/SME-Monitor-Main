@@ -17,7 +17,6 @@ var response = {
         [
             {
                 "id": "001", // 相簿 id
-                "img": "http://xxx.xx/photo/picture/001.jpg",     // 圖片原圖網址
 
                 "thumb_desktop": "http://xxx.xx/xx.jpg",  // 桌機板縮圖 (270 x 200)
                 "thumb_mobile": "http://xxx.xx/xx.m.jpg",  // 手機板縮圖 (448 x 332)

@@ -21,19 +21,6 @@
 
             DownloadContent.init($doms.innerPageContainer);
 
-            //ApiProxy.callApi('download', {}, null, function(response)
-            //{
-            //
-            //    if(response.error)
-            //    {
-            //        alert(response.error);
-            //    }
-            //    else
-            //    {
-            //        _dataList = response.data_list;
-            //    }
-            //});
-
 
             _isInit = true;
             onReady.call();

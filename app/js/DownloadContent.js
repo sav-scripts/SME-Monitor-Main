@@ -35,6 +35,40 @@
 
             $doms.btnDownload = $doms.container.find(".btn-download").on(_CLICK_, function()
             {
+                if(_loadedData[_currentType])
+                {
+                    var dataList = _loadedData[_currentType].dataList,
+                        i,
+                        id,
+                        obj,
+                        checkedIdDic = {},
+                        checkedArray = [];
+
+                    for(i=0;i<dataList.length;i++)
+                    {
+                        obj = dataList[i];
+
+                        if(obj.checked)
+                        {
+                            id = obj.id;
+                            if(!checkedIdDic[id])
+                            {
+                                checkedIdDic[id] = true;
+                                checkedArray.push(id);
+                            }
+                        }
+                    }
+
+                    if(checkedArray.length > 0)
+                    {
+
+                        //ApiProxy.callApi("download/batch", {'file_list':checkedArray}, false, function(response)
+                        ApiProxy.callApi("download/batch", {'file_list':checkedArray}, false, function(response)
+                        {
+                            console.log(response);
+                        });
+                    }
+                }
             });
 
         },
@@ -106,7 +140,7 @@
             function loadOne()
             {
                 var contentType = _typeArray[i];
-                ApiProxy.callApi("download", {page_index: 0, page_size: 9999}, true, function(response)
+                ApiProxy.callApi("download", {page_index: 0, page_size: 9999}, false, function(response)
                 {
                     if(response.error)
                     {
@@ -158,9 +192,17 @@
         if(startIndex < 0) startIndex = 0;
         if(endIndex > dataList.length) endIndex = dataList.length;
 
+        var tl = new TimelineMax,
+            delay = 0;
+
         for(i=startIndex;i<endIndex;i++)
         {
-            _generateRow(dataList[i]);
+            var $row = _generateRow(dataList[i]);
+
+            tl.set($row, {autoAlpha: 0}, 0);
+            tl.to($row,.4, {autoAlpha:1}, delay);
+
+            delay += .05;
         }
     }
 
@@ -169,18 +211,41 @@
         var $row = $doms.itemSample.clone(),
             $select = $row.find(".checkbox");
 
-        var checkboxId = 'publication-checkbox-' + obj.id;
-        $select.find("input")[0].id = checkboxId;
+        var checkboxId = 'download-checkbox-' + obj.id,
+            $selectInput = $select.find("input");
+        $selectInput[0].id = checkboxId;
         $select.find("label")[0].setAttribute('for', checkboxId);
 
-        var $download = $row.find(".col-download");
+        if(obj.checked === undefined)
+        {
+            obj.checked = false;
+        }
+
+        $selectInput.on('change', function(event)
+        {
+            obj.checked = event.target.checked;
+        });
+
+
+
+        var $download = $row.find(".col-download").find("a");
         $download.find(".filesize").text(obj.file_size);
+
+        $download.attr('href', obj.file_url);
+        $download.attr('download', obj.file_url);
+
+        //$download.on('click', function()
+        //{
+        //    console.log(obj.file_url);
+        //});
 
         $row.find(".col-date").text(obj.date);
         $row.find(".col-title").text(obj.title);
 
 
         $doms.contentTable.append($row);
+
+        return $row;
     }
 
 }());

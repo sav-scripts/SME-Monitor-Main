@@ -16,6 +16,7 @@
         self._cbApplyData = cbApplyData;
 
         self._$itemContainer = $container.find(".item-container");
+        self._$spacer = self._$itemContainer.find(".spacer");
         //self._$pageDotContainer = $container.find(".page-dot-container");
 
         if(pageSize) self._pageSize = pageSize;
@@ -41,6 +42,7 @@
         _$itemSample: null,
 
         _$itemContainer: null,
+        _$spacer: null,
         _$pageDotContainer: null,
 
         _itemList: null,
@@ -146,7 +148,8 @@
 
         $oldItems.each(function(index, dom)
         {
-            tl.to(dom,.4,{marginTop:-50, autoAlpha:0, onCompleteParams:[dom], onComplete: function(d)
+            //tl.to(dom,.4,{marginTop:-50, autoAlpha:0, onCompleteParams:[dom], onComplete: function(d)
+            tl.to(dom,.4,{autoAlpha:0, onCompleteParams:[dom], onComplete: function(d)
             {
             }}, index *.2);
         });
@@ -181,10 +184,13 @@
             $item = self._itemList[i];
             delay = startIndex == i? "+=.1": "-=.3";
 
-            tl.set($item, {autoAlpha:0, marginTop: 50}, 0);
-            tl.to($item,.4, {autoAlpha:1, marginTop:0, onStartParams: [$item], onStart: function($d)
+            //tl.set($item, {autoAlpha:0, marginTop: 50}, 0);
+            tl.set($item, {autoAlpha:0}, 0);
+            tl.to($item,.4, {autoAlpha:1, onStartParams: [$item], onStart: function($d)
             {
                 self._$itemContainer.append($d);
+                self._$itemContainer.append(self._$spacer);
+
             }}, delay);
         }
 

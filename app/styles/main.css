@@ -987,157 +987,9 @@ body {
 #banner {
   position: relative;
   width: 100%;
-  background-color: #222222;
-  overflow: hidden;
-}
-#banner .section-head {
-  position: absolute;
-  width: 600px;
-  left: 50%;
-  top: 10px;
-  margin-left: -300px;
-  z-index: 1;
-}
-#banner .section-head .title {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  font-family: Arial, serif;
-  font-size: 39px;
-  height: 39px;
-  margin-top: 39px;
-  color: #252525;
-}
-#banner .section-head .underline {
-  position: relative;
-  width: 112px;
-  height: 2px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 8px;
-  background: linear-gradient(to right, #69ddbc, #36356d);
-}
-#banner .section-head .sub-title {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  font-family: Arial, serif;
-  font-size: 11px;
-  height: 11px;
-  font-weight: bold;
-  margin-top: 9px;
-  letter-spacing: -0.5px;
-  color: #8c8c8c;
-}
-#banner .content {
-  position: relative;
-  width: 100%;
   height: 400px;
-  padding-top: 0;
-}
-#banner .content .item-container {
-  position: absolute;
-  width: 930px;
-  left: 50%;
-  top: 231px;
-  margin-left: -465px;
-}
-#banner .content .item-container .item {
-  position: relative;
-  width: 270px;
-  visibility: hidden;
-  margin-left: 20px;
-  margin-right: 20px;
-  float: left;
-  font-family: Arial, serif;
-  font-weight: bold;
-}
-#banner .content .item-container .item .thumb {
-  position: relative;
-  width: 270px;
-  height: 200px;
-  cursor: pointer;
-}
-#banner .content .item-container .item .date {
-  position: relative;
-  margin-top: 19px;
-  width: 100%;
-  font-size: 13px;
-  color: #939393;
-}
-#banner .content .item-container .item .title {
-  position: relative;
-  margin-top: 1px;
-  width: 100%;
-  font-size: 15px;
-  color: #5a5a5a;
-}
-#banner .content .item-container .item .sub-title {
-  position: relative;
-  margin-top: 10px;
-  width: 100%;
-  font-size: 11.5px;
-  color: #5a5a5a;
-}
-#banner .content .page-dot-container {
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  top: 600px;
-}
-#banner .content .page-dot-container .dot {
-  position: relative;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-position: bottom;
-  margin-left: 4px;
-  margin-right: 4px;
-  background-image: url("../images/page-dot.png");
-  background-size: auto;
-  cursor: pointer;
-}
-#banner .content .page-dot-container .dot.focus-mode {
-  background-position: top;
-}
-#banner .content .arrow-prev {
-  position: absolute;
-  left: 50px;
-  top: 300px;
-  width: 50px;
-  height: 70px;
-  background-image: url("../images/page-arrow-prev.png");
-  background-size: auto;
-  cursor: pointer;
-}
-#banner .content .arrow-prev:active {
-  margin-left: -2px;
-}
-#banner .content .arrow-prev.hide-mode {
-  visibility: hidden;
-}
-#banner .content .arrow-next {
-  position: absolute;
-  right: 50px;
-  top: 300px;
-  width: 50px;
-  height: 70px;
-  background-image: url("../images/page-arrow-next.png");
-  background-size: auto;
-  cursor: pointer;
-}
-#banner .content .arrow-next:active {
-  margin-right: -2px;
-}
-#banner .content .arrow-next.hide-mode {
-  visibility: hidden;
-}
-#banner .inner-page-container {
-  position: relative;
-  width: 100%;
-  height: auto;
-  padding-top: 0;
-  display: none;
+  overflow: hidden;
+  background-color: #222222;
 }
 #banner .content {
   overflow: hidden;
@@ -1160,6 +1012,7 @@ body {
   background-size: auto;
   background-position: top;
   overflow: hidden;
+  background-position: center top;
 }
 #news .section-head {
   position: absolute;
@@ -1203,15 +1056,15 @@ body {
 #news .content {
   position: relative;
   width: 100%;
-  height: 573px;
   padding-top: 130px;
 }
 #news .content .item-container {
-  position: absolute;
+  position: relative;
   width: 930px;
-  left: 50%;
-  top: 231px;
-  margin-left: -465px;
+  min-height: 340px;
+  margin-top: 101px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #news .content .item-container .item {
   position: relative;
@@ -1251,10 +1104,10 @@ body {
   color: #5a5a5a;
 }
 #news .content .page-dot-container {
-  position: absolute;
+  position: relative;
   text-align: center;
-  width: 100%;
-  top: 600px;
+  width: 480px;
+  margin: 40px auto;
 }
 #news .content .page-dot-container .dot {
   position: relative;
@@ -1320,6 +1173,7 @@ body {
   background-size: auto;
   background-position: top;
   overflow: hidden;
+  background-position: center top;
 }
 #events .section-head {
   position: absolute;
@@ -1363,15 +1217,15 @@ body {
 #events .content {
   position: relative;
   width: 100%;
-  height: 567px;
   padding-top: 130px;
 }
 #events .content .item-container {
-  position: absolute;
+  position: relative;
   width: 930px;
-  left: 50%;
-  top: 231px;
-  margin-left: -465px;
+  min-height: 340px;
+  margin-top: 101px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #events .content .item-container .item {
   position: relative;
@@ -1411,10 +1265,10 @@ body {
   color: #5a5a5a;
 }
 #events .content .page-dot-container {
-  position: absolute;
+  position: relative;
   text-align: center;
-  width: 100%;
-  top: 600px;
+  width: 480px;
+  margin: 40px auto;
 }
 #events .content .page-dot-container .dot {
   position: relative;
@@ -1480,6 +1334,7 @@ body {
   background-size: auto;
   background-position: top;
   overflow: hidden;
+  background-position: center top;
 }
 #publication .section-head {
   position: absolute;
@@ -1523,15 +1378,15 @@ body {
 #publication .content {
   position: relative;
   width: 100%;
-  height: 546px;
   padding-top: 130px;
 }
 #publication .content .item-container {
-  position: absolute;
+  position: relative;
   width: 930px;
-  left: 50%;
-  top: 231px;
-  margin-left: -465px;
+  min-height: 340px;
+  margin-top: 101px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #publication .content .item-container .item {
   position: relative;
@@ -1571,10 +1426,10 @@ body {
   color: #5a5a5a;
 }
 #publication .content .page-dot-container {
-  position: absolute;
+  position: relative;
   text-align: center;
-  width: 100%;
-  top: 600px;
+  width: 480px;
+  margin: 40px auto;
 }
 #publication .content .page-dot-container .dot {
   position: relative;
@@ -1640,6 +1495,7 @@ body {
   background-size: auto;
   background-position: top;
   overflow: hidden;
+  background-position: center top;
 }
 #pictures .section-head {
   position: absolute;
@@ -1683,15 +1539,15 @@ body {
 #pictures .content {
   position: relative;
   width: 100%;
-  height: 542px;
   padding-top: 130px;
 }
 #pictures .content .item-container {
-  position: absolute;
+  position: relative;
   width: 930px;
-  left: 50%;
-  top: 231px;
-  margin-left: -465px;
+  min-height: 340px;
+  margin-top: 101px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #pictures .content .item-container .item {
   position: relative;
@@ -1731,10 +1587,10 @@ body {
   color: #5a5a5a;
 }
 #pictures .content .page-dot-container {
-  position: absolute;
+  position: relative;
   text-align: center;
-  width: 100%;
-  top: 600px;
+  width: 480px;
+  margin: 40px auto;
 }
 #pictures .content .page-dot-container .dot {
   position: relative;
@@ -1798,6 +1654,7 @@ body {
   width: 100%;
   background-color: #64cad5;
   overflow: hidden;
+  background-position: center top;
 }
 #videos .section-head .title {
   color: white;
@@ -1847,15 +1704,15 @@ body {
 #videos .content {
   position: relative;
   width: 100%;
-  height: 334px;
   padding-top: 130px;
 }
 #videos .content .item-container {
-  position: absolute;
+  position: relative;
   width: 920px;
-  left: 50%;
-  top: 231px;
-  margin-left: -460px;
+  min-height: 340px;
+  margin-top: 101px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #videos .content .item-container .item {
   position: relative;
@@ -1896,10 +1753,10 @@ body {
   color: #5a5a5a;
 }
 #videos .content .page-dot-container {
-  position: absolute;
+  position: relative;
   text-align: center;
-  width: 100%;
-  top: 600px;
+  width: 480px;
+  margin: 40px auto;
 }
 #videos .content .page-dot-container .dot {
   position: relative;
@@ -1959,7 +1816,9 @@ body {
   z-index: 2;
 }
 #videos .content .item-container {
-  top: 118px;
+  top: 0;
+  margin-top: 20px;
+  min-height: 270px;
 }
 #videos .content .item-container .item .title {
   font-size: 11.5px;
@@ -1967,9 +1826,6 @@ body {
   width: 202px;
   padding-left: 8px;
   padding-right: 8px;
-}
-#videos .content .page-dot-container {
-  top: 390px;
 }
 #videos .content .arrow-prev {
   top: 205px;
@@ -2365,6 +2221,9 @@ body {
   }
   /* banner */
   /* news */
+  #news {
+    background-image: none;
+  }
   #news .section-head {
     height: 140px;
     background-color: #eeeeee;
@@ -2393,15 +2252,12 @@ body {
     width: 100%;
     background-color: white;
     background-image: none;
-    height: 730px;
     padding-top: 140px;
   }
   #news .content .item-container {
-    position: absolute;
     width: 488px;
-    left: 50%;
-    top: 220px;
-    margin-left: -244px;
+    min-height: 540px;
+    margin: 90px auto 0;
   }
   #news .content .item-container .item {
     position: relative;
@@ -2409,7 +2265,6 @@ body {
     visibility: hidden;
     margin-left: 20px;
     margin-right: 20px;
-    float: left;
     font-family: Arial, serif;
     font-weight: bold;
   }
@@ -2441,11 +2296,9 @@ body {
     color: #5a5a5a;
   }
   #news .content .page-dot-container {
-    position: absolute;
     text-align: center;
-    width: 100%;
-    top: auto;
-    bottom: 52px;
+    width: 500px;
+    margin: 40px auto;
   }
   #news .content .page-dot-container .dot {
     position: relative;
@@ -2487,6 +2340,9 @@ body {
     display: none;
   }
   /* events */
+  #events {
+    background-image: none;
+  }
   #events .section-head {
     height: 140px;
     background-color: #eeeeee;
@@ -2515,15 +2371,12 @@ body {
     width: 100%;
     background-color: white;
     background-image: none;
-    height: 730px;
     padding-top: 140px;
   }
   #events .content .item-container {
-    position: absolute;
     width: 488px;
-    left: 50%;
-    top: 220px;
-    margin-left: -244px;
+    min-height: 540px;
+    margin: 90px auto 0;
   }
   #events .content .item-container .item {
     position: relative;
@@ -2531,7 +2384,6 @@ body {
     visibility: hidden;
     margin-left: 20px;
     margin-right: 20px;
-    float: left;
     font-family: Arial, serif;
     font-weight: bold;
   }
@@ -2563,11 +2415,9 @@ body {
     color: #5a5a5a;
   }
   #events .content .page-dot-container {
-    position: absolute;
     text-align: center;
-    width: 100%;
-    top: auto;
-    bottom: 52px;
+    width: 500px;
+    margin: 40px auto;
   }
   #events .content .page-dot-container .dot {
     position: relative;
@@ -2609,6 +2459,9 @@ body {
     display: none;
   }
   /* publication */
+  #publication {
+    background-image: none;
+  }
   #publication .section-head {
     height: 140px;
     background-color: #eeeeee;
@@ -2637,15 +2490,12 @@ body {
     width: 100%;
     background-color: white;
     background-image: none;
-    height: 730px;
     padding-top: 140px;
   }
   #publication .content .item-container {
-    position: absolute;
     width: 488px;
-    left: 50%;
-    top: 220px;
-    margin-left: -244px;
+    min-height: 540px;
+    margin: 90px auto 0;
   }
   #publication .content .item-container .item {
     position: relative;
@@ -2653,7 +2503,6 @@ body {
     visibility: hidden;
     margin-left: 20px;
     margin-right: 20px;
-    float: left;
     font-family: Arial, serif;
     font-weight: bold;
   }
@@ -2685,11 +2534,9 @@ body {
     color: #5a5a5a;
   }
   #publication .content .page-dot-container {
-    position: absolute;
     text-align: center;
-    width: 100%;
-    top: auto;
-    bottom: 52px;
+    width: 500px;
+    margin: 40px auto;
   }
   #publication .content .page-dot-container .dot {
     position: relative;
@@ -2731,6 +2578,9 @@ body {
     display: none;
   }
   /* pictures */
+  #pictures {
+    background-image: none;
+  }
   #pictures .section-head {
     height: 140px;
     background-color: #eeeeee;
@@ -2759,15 +2609,12 @@ body {
     width: 100%;
     background-color: white;
     background-image: none;
-    height: 750px;
     padding-top: 140px;
   }
   #pictures .content .item-container {
-    position: absolute;
     width: 488px;
-    left: 50%;
-    top: 220px;
-    margin-left: -244px;
+    min-height: 540px;
+    margin: 90px auto 0;
   }
   #pictures .content .item-container .item {
     position: relative;
@@ -2775,7 +2622,6 @@ body {
     visibility: hidden;
     margin-left: 20px;
     margin-right: 20px;
-    float: left;
     font-family: Arial, serif;
     font-weight: bold;
   }
@@ -2807,11 +2653,9 @@ body {
     color: #5a5a5a;
   }
   #pictures .content .page-dot-container {
-    position: absolute;
     text-align: center;
-    width: 100%;
-    top: auto;
-    bottom: 52px;
+    width: 500px;
+    margin: 40px auto;
   }
   #pictures .content .page-dot-container .dot {
     position: relative;
@@ -2853,6 +2697,9 @@ body {
     display: none;
   }
   /* videos */
+  #videos {
+    background-image: none;
+  }
   #videos .section-head {
     height: 140px;
     background-color: #eeeeee;
@@ -2881,15 +2728,12 @@ body {
     width: 100%;
     background-color: white;
     background-image: none;
-    height: 660px;
     padding-top: 140px;
   }
   #videos .content .item-container {
-    position: absolute;
     width: 488px;
-    left: 50%;
-    top: 220px;
-    margin-left: -244px;
+    min-height: 540px;
+    margin: 90px auto 0;
   }
   #videos .content .item-container .item {
     position: relative;
@@ -2897,7 +2741,6 @@ body {
     visibility: hidden;
     margin-left: 20px;
     margin-right: 20px;
-    float: left;
     font-family: Arial, serif;
     font-weight: bold;
   }
@@ -2929,11 +2772,9 @@ body {
     color: #5a5a5a;
   }
   #videos .content .page-dot-container {
-    position: absolute;
     text-align: center;
-    width: 100%;
-    top: auto;
-    bottom: 52px;
+    width: 500px;
+    margin: 40px auto;
   }
   #videos .content .page-dot-container .dot {
     position: relative;
@@ -2989,7 +2830,8 @@ body {
     background-color: #64cad5;
   }
   #videos .content .item-container {
-    top: 190px;
+    margin-top: 0;
+    min-height: 480px;
   }
   #videos .content .item-container .item .thumb {
     border: none;
@@ -3192,7 +3034,7 @@ body {
   #pictures-inner-page .item-container .item .thumb {
     position: relative;
     width: 448px;
-    height: 332px;
+    height: 356px;
   }
   #pictures-inner-page .item-container .item .title {
     font-family: Arial, serif;

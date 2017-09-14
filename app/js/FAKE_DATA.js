@@ -32,7 +32,7 @@ window._FAKE_DATA_ =
                     "thumb_mobile": "./test/images/news-thumb-1.m.png",
                     "date": "2017/3/10",
                     "title": "2016 APEC Leaders' Declaration",
-                    "sub_title": "Aiming to unleash the potential of SMEs to boost Asia-Pacific economic growth"
+                    "sub_title": "Aiming to unleash the potential of SMEs to boost Asia-Pacific economic growth Aiming to unleash the potential of SMEs to boost Asia-Pacific economic growth Aiming to unleash the potential of SMEs to boost Asia-Pacific economic growth Aiming to unleash the potential of SMEs to boost Asia-Pacific economic growth Aiming to unleash the potential of SMEs to boost Asia-Pacific economic growth"
                 },
                 {
                     "id": "002",
