@@ -20,7 +20,7 @@
 
             $doms.itemSample.detach();
 
-            ApiProxy.callApi('events', {}, null, function(response)
+            ApiProxy.callApi('event', {}, false, function(response)
             {
 
                 if(response.error)
@@ -33,9 +33,12 @@
 
                     _itemLister = new ItemLister(response.data_list, $doms.content, $doms.itemSample, function(dataObj)
                     {
-                        //console.log(dataObj.hash);
+                        ga("send", "event", "/Index", "/Events/click", dataObj.id);
 
-                        window.open(dataObj.link, '_blank');
+                        if(dataObj.link)
+                        {
+                            window.open(dataObj.link, dataObj.target? dataObj.target: "_blank");
+                        }
                     });
                 }
 

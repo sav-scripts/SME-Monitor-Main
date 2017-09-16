@@ -104,6 +104,12 @@
                 img.onload = null;
 
                 img.className = "banner-item";
+
+                if(obj.background)
+                {
+                    $(img).css('background-color', obj.background);
+                }
+
                 obj.item = img;
                 onReady.call(null, obj.item);
             };
@@ -112,9 +118,11 @@
 
             $(img).on(_CLICK_, function()
             {
-                if(obj.link)
+                ga("send", "event", "/Index", "/Banner/click", obj.id);
+
+                if(obj.url)
                 {
-                    window.open(obj.link, "_blank");
+                    window.open(obj.url, obj.target? obj.target: "_blank");
                 }
             });
         }

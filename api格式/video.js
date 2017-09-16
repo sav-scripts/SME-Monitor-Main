@@ -1,6 +1,6 @@
 /*
 
- 取得 相簿 資料清單
+ 取得 Video 資料清單
 
  * */
 
@@ -16,14 +16,11 @@ var response = {
     "data_list":            // 資料陣列, 最新資料排在最前面
         [
             {
-                "id": 1, // 相簿 id
-
-                "thumb_desktop": "http://xxx.xx/xx.jpg",  // 桌機板縮圖 (270 x 200)
-                "thumb_mobile": "http://xxx.xx/xx.m.jpg",  // 手機板縮圖 (448 x 332)
-
+                "thumb_desktop": "http://xxx.xx/xx.jpg",        // 桌機板縮圖, 標準 (212 x 156)
+                "thumb_mobile": "http://xxx.xx/xx.m.jpg",       // 手機板縮圖 (448 x 332)
                 "date": "2017-09-13",               // 日期
                 "title": "balabalalala",            // 主標
-                "sub_title": "lababababa",           // 次標
+                "link": "http://maybe.utube/",   // 影片網址
                 "target": "_blank"
             }
             // ...以下多筆相同格式資料

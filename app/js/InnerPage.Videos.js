@@ -20,7 +20,7 @@
 
             $doms.itemSample.detach();
 
-            ApiProxy.callApi('videos', {}, null, function(response)
+            ApiProxy.callApi('video', {}, false, function(response)
             {
                 if(response.error)
                 {
@@ -32,9 +32,14 @@
 
                     _itemLister = new ItemLister(response.data_list, $doms.content, $doms.itemSample, function(dataObj)
                     {
-                        //console.log(dataObj.hash);
 
-                        window.open(dataObj.link, '_blank');
+                        ga("send", "event", "/Index", "/Videos/click", dataObj.id);
+
+                        if(dataObj.link)
+                        {
+                            ApiProxy.sendClickEvent("video/"+dataObj.id+"/c");
+                            window.open(dataObj.link, dataObj.target? dataObj.target: "_blank");
+                        }
                     }, null,
                     {
                         '0': 1,

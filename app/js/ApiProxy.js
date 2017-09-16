@@ -7,14 +7,16 @@
 
     var _apiExtension = "",
         _apiPath = "http://admin.apac.jktarots.com:9454/api/",
-        _dataType = "jsonp";
+        _method = "POST",
+        _dataType = "json";
 
     window.ApiProxy =
     {
-        callApi: function(apiName, params, fakeDataName, cb)
+        callApi: function(apiName, params, fakeDataName, cb, method)
         {
-            var apiUrl = _apiPath + apiName + _apiExtension,
-                method = "POST";
+            var apiUrl = _apiPath + apiName + _apiExtension;
+
+            if(!method) method = _method;
 
             if(fakeDataName !== false)
             {
@@ -44,6 +46,7 @@
                 $.ajax
                 ({
                     url: apiUrl,
+                    crossDomain: true,
                     type: method,
                     data: params,
                     dataType: _dataType
@@ -60,6 +63,35 @@
             {
                 if(cb) cb.call(null, response);
             }
+        },
+
+        getApiPath: function()
+        {
+            return _apiPath;
+        },
+
+        getMethod: function()
+        {
+            return _method;
+        },
+
+        sendClickEvent: function(apiName)
+        {
+            var apiUrl = _apiPath + apiName;
+
+            $.ajax
+            ({
+                url: apiUrl,
+                type: "POST"
+            })
+                .done(function()
+                {
+                    console.log("done");
+                })
+                .fail(function ()
+                {
+                    console.log("send click event: ["+apiName+"] fail");
+                });
         }
     };
 

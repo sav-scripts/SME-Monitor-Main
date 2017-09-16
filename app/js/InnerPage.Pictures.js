@@ -26,14 +26,16 @@
 
             $doms.btnBack = $doms.innerPageContainer.find(".btn-back").on(_CLICK_, function()
             {
+                ga("send", "event", "/Pictures/InnerPage", "click", "BackToList");
                 Hash.to("/Pictures");
             });
 
             $doms.btnBack = $doms.innerPageContainer.find(".btn-download").on(_CLICK_, function()
             {
+                ga("send", "event", "/Pictures/InnerPage", "click", "Download");
                 if(_downloadUrl)
                 {
-                    window.open(_downloadUrl, "_blank");
+                    window.open(_downloadUrl, "_self");
                 }
             });
 
@@ -49,7 +51,7 @@
             $doms.innerPageSpacer = $doms.innerPageItemContainer.find(".spacer").detach();
 
 
-            ApiProxy.callApi('album', {}, null, function(response)
+            ApiProxy.callApi('album', {}, false, function(response)
             {
                 if(response.error)
                 {
@@ -65,12 +67,9 @@
 
                     _itemLister = new ItemLister(response.data_list, $doms.content, $doms.itemSample, function(dataObj)
                     {
-                        //console.log(dataObj.hash);
-                        if(dataObj.link)
-                        {
+                        ga("send", "event", "/Index", "/Pictures/click", dataObj.id);
 
-                        }
-                        else if(dataObj.hash)
+                        if(dataObj.hash)
                         {
                             Hash.to(dataObj.hash);
                         }
@@ -102,7 +101,7 @@
         loadContent: function(contentId, cb)
         {
 
-            ApiProxy.callApi('pictures', {album_id:contentId}, null, function(response)
+            ApiProxy.callApi('picture', {album_id:contentId}, false, function(response)
             {
                 var albumData = _dataDic[contentId];
                 $doms.albumDetail.find(".date").text(albumData.date);

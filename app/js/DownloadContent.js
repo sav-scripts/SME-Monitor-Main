@@ -30,11 +30,14 @@
 
             $doms.btnBack = $doms.container.find(".btn-back").on(_CLICK_, function()
             {
+                ga("send", "event", "/Download/List", "click", "BackToList");
                 Hash.to("/Home");
             });
 
             $doms.btnDownload = $doms.container.find(".btn-download").on(_CLICK_, function()
             {
+                ga("send", "event", "/Download/List", "click", "Download");
+
                 if(_loadedData[_currentType])
                 {
                     var dataList = _loadedData[_currentType].dataList,
@@ -61,12 +64,8 @@
 
                     if(checkedArray.length > 0)
                     {
-
-                        //ApiProxy.callApi("download/batch", {'file_list':checkedArray}, false, function(response)
-                        ApiProxy.callApi("download/batch", {'file_list':checkedArray}, false, function(response)
-                        {
-                            console.log(response);
-                        });
+                        var url = ApiProxy.getApiPath() + "download/batch";
+                        Main.downloadFiles("POST", url, {'file_list':checkedArray}, "_self");
                     }
                 }
             });

@@ -29,6 +29,7 @@
 
             $doms.btnBack = $doms.innerPageContainer.find(".btn-back").on(_CLICK_, function()
             {
+                ga("send", "event", "/News/InnerPage", "click", "BackToList");
                 Hash.to("/News");
             });
 
@@ -51,10 +52,12 @@
 
                     _itemLister = new ItemLister(response.data_list, $doms.content, $doms.itemSample, function(dataObj)
                     {
-                        //console.log(dataObj.hash);
+
+                        ga("send", "event", "/Index", "/News/click", dataObj.id);
+
                         if(dataObj.link)
                         {
-                            window.open(dataObj.link, "_blank");
+                            window.open(dataObj.link, dataObj.target? dataObj.target: "_blank");
                         }
                         else if(dataObj.hash)
                         {
@@ -104,7 +107,8 @@
 
                 _loadingXHR = $.ajax({
                     url: contentUrl,
-                    dataType: 'html'
+                    dataType: 'html',
+                    type: ApiProxy.getMethod()
                 }).done(function(data)
                 {
                     $(dom).html(data);

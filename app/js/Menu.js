@@ -110,6 +110,7 @@
 
                     $btn.on(_CLICK_, function()
                     {
+                        ga("send", "event", "Menu", "/Initiatives/Menu/click", obj.id);
                         self.switchDropMenu(false);
                         Hash.to("/Initiatives/" + obj.id);
                     });
@@ -191,6 +192,7 @@
 
                     $btn.on(_CLICK_, function()
                     {
+                        ga("send", "event", "Menu", "/Initiatives/Menu/click", obj.id);
                         self.switchDropMenu(false);
                         Hash.to("/Initiatives/" + obj.id);
 
@@ -250,12 +252,32 @@
 
     function setupPcMenu()
     {
+        $doms.topPart.find(".fb-icon").on(_CLICK_, function()
+        {
+            ga("send", "event", "Menu", "click", "/FacebookPage");
+        });
+
+        $doms.topPart.find(".youtube-icon").on(_CLICK_, function()
+        {
+            ga("send", "event", "Menu", "click", "/YouTubeChannel");
+        });
+
+        $doms.topPart.find(".email-icon").on(_CLICK_, function()
+        {
+            ga("send", "event", "Menu", "click", "/ContactUs");
+        });
+
+
         $doms.buttonContainer.find(".menu-button").on(_CLICK_, function()
         {
             if(_isLocking) return;
 
-            //self.setFocusToDom(this);
+
+
             var anchor = this.getAttribute('anchor');
+
+            ga("send", "event", "Menu", "click", anchor);
+
             if(anchor === "/Download")
             {
                 Hash.to("/Download/List");
@@ -350,6 +372,9 @@
 
             //self.setFocusToDom(this);
             var anchor = this.getAttribute('anchor');
+
+            ga("send", "event", "Menu", "click", anchor);
+
             if(anchor === "/Download")
             {
                 self.switchMobileOpen(false);
@@ -358,13 +383,12 @@
             }
             else if(anchor === "/Initiatives")
             {
-                //console.log('handle Initiatives menu');
-                //Hash.to("/Initiatives/001");
-                //self.switchDropMenu();
+            }
+            else if(anchor === "/ContactUs")
+            {
             }
             else
             {
-                //MainPage.toHash(anchor);
                 self.switchMobileOpen(false);
                 Hash.to(anchor);
                 MainPage.toSection(anchor);

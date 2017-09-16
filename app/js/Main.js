@@ -55,7 +55,51 @@
             $(window).on("resize", onResize);
             onResize();
 
+            /*
+            $.ajax(
+                {
+                    url:"http://apac.jktarots.com:9454/test_cors.php",
+                    //url:"http://local.savorks.com/projects/sid/SME-Monitor/SME-Monitor-Main/app/test_cors.php",
+                    type: "post"
+            })
+            .done(function(response)
+            {
+                console.log('done: ' + response);
+            })
+            .fail(function(response)
+            {
+               console.log('fail');
+            });
+            */
+
             MainPage.init();
+        },
+
+        downloadFiles: function(verb, url, data, target)
+        {
+            var form = document.createElement("form");
+            form.action = url;
+            form.method = verb;
+            form.target = target || "_self";
+            if (data) {
+                for (var key in data) {
+
+
+                    var array = data[key];
+
+                    for(var k=0;k<array.length;k++)
+                    {
+                        var input = document.createElement("textarea");
+                        input.name = key + "[]";
+                        input.value = array[k];
+                        form.appendChild(input);
+                    }
+                }
+            }
+            form.style.display = 'none';
+            document.body.appendChild(form);
+            form.submit();
+            $(form).detach();
         }
     };
 

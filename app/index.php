@@ -1,8 +1,8 @@
 <?php
 
 $siteName = '';
-$serviceEmail = '';
-$gaCode = '';
+$serviceEmail = 'mailto:d32438@tier.org.tw';
+$gaCode = 'UA-47951656-19';
 $copyRight = 'Copyright 2017 APEC SME Monitor. All Rights Reserved';
 $metaTitle = '';
 $metaKeyword = '';
@@ -30,6 +30,26 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
     <meta property="og:description" content="<?=$metaDescription?>" />
 
     <link rel="stylesheet" href="styles/main.css">
+
+
+    <script>
+
+        var _gaId = "<?=$gaCode?>";
+
+        if(_gaId)
+        {
+
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', _gaId, 'auto');
+            ga('send', 'pageview', 'Load');
+        }
+
+
+    </script>
 
 </head>
 <body onload="Main.init();">
@@ -471,7 +491,7 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
                     <div class="logo"></div>
                     <div class="detail">
                         <div class="row1">E-MAIL</div>
-                        <div class="row2"><a href="mailto:d32438@tier.org.tw" target="_blank" >d32438@tier.org.tw</a></div>
+                        <div class="row2"><a href="mailto:<?=$serviceEmail?>" target="_blank" ><?=$serviceEmail?></a></div>
                         <div class="row3">AUTHORIZATION METHOD</div>
                         <div class="row4">& SCOPE</div>
                     </div>
@@ -493,8 +513,6 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
 
     <div id="header">
 
-
-
         <div class="drop-menu">
 
         </div>
@@ -508,7 +526,7 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
 
             <a href="https://www.facebook.com/APECSMEMonitor/" target="_blank" class="btn fb-icon"></a>
             <a href="https://www.youtube.com/channel/UC7GuRDWlFe64RkMWDBATJqQ" target="_blank" class="btn youtube-icon"></a>
-            <a href="mailto:d33283@tier.org.tw,d32491@tier.org.tw,d32438@tier.org.tw" target="_blank" class="btn email-icon"></a>
+            <a href="mailto:<?=$serviceEmail?>" target="_blank" class="btn email-icon"></a>
 
         </div>
 
@@ -559,7 +577,7 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
                 <div class="mobile-menu-button" anchor="/Pictures">Pictures</div>
                 <div class="mobile-menu-button" anchor="/Videos">Videos</div>
                 <div class="mobile-menu-button" anchor="/Download">Download</div>
-                <a class="mobile-menu-button btn-contact" href="mailto:d32438@tier.org.tw" target="_blank">Contact us</a>
+                <a class="mobile-menu-button btn-contact" anchor="/ContactUs" href="mailto:<?=$serviceEmail?>" target="_blank">Contact us</a>
 <!--            </div>-->
         </div>
 

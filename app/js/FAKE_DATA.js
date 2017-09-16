@@ -81,7 +81,7 @@ window._FAKE_DATA_ =
             ]
     },
 
-    "events":
+    "event":
     {
         "error": '',
         "data_list":
@@ -611,7 +611,7 @@ window._FAKE_DATA_ =
             ]
     },
 
-    "pictures":
+    "picture":
     {
         "error": '',
         "data_list":
@@ -676,7 +676,7 @@ window._FAKE_DATA_ =
         "download_url": "http://example.com/"
     },
 
-    "videos":
+    "video":
     {
         "error": '',
         "data_list":
@@ -719,7 +719,7 @@ window._FAKE_DATA_ =
             ]
     },
 
-    "links":
+    "link":
     {
 
         "error": '',
@@ -753,7 +753,7 @@ window._FAKE_DATA_ =
             ]
     },
 
-    "initiatives":
+    "initiative":
     {
         "error": '',
         "data_list":

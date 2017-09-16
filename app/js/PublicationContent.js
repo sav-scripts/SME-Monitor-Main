@@ -68,11 +68,13 @@
 
             $doms.btnBack = $doms.container.find(".btn-back").on(_CLICK_, function()
             {
+                ga("send", "event", "/Publication/InnerPage", "click", "BackToList");
                 Hash.to("/Publication");
             });
 
             $doms.btnDownload = $doms.container.find(".btn-download").on(_CLICK_, function()
             {
+                ga("send", "event", "/Publication/InnerPage", "click", "Download");
                 if(_loadedData[_currentType])
                 {
                     var dataList = _loadedData[_currentType].dataList,
@@ -99,11 +101,8 @@
 
                     if(checkedArray.length > 0)
                     {
-
-                        ApiProxy.callApi("publication/batch", {'file_list':checkedArray}, false, function(response)
-                        {
-                            console.log(response);
-                        });
+                        var url = ApiProxy.getApiPath() + "publication/batch";
+                        Main.downloadFiles("POST", url, {'file_list':checkedArray}, "_self");
                     }
                 }
             });
@@ -183,7 +182,8 @@
             function loadOne()
             {
                 var contentType = _typeArray[i];
-                ApiProxy.callApi("publication", {search_type: contentType, page_index: 0, page_size: 9999}, "publication." + contentType, function(response)
+                //ApiProxy.callApi("publication", {search_type: contentType, page_index: 0, page_size: 9999}, "publication." + contentType, function(response)
+                ApiProxy.callApi("publication", {search_type: contentType, page_index: 0, page_size: 9999}, false, function(response)
                 {
                     if(response.error)
                     {
@@ -283,6 +283,8 @@
         {
             obj.checked = false;
         }
+
+        $selectInput[0].checked = obj.checked;
 
         $selectInput.on('change', function(event)
         {

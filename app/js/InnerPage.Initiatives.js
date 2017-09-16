@@ -25,12 +25,13 @@
 
             $doms.btnBack = $doms.innerPageContainer.find(".btn-back").on(_CLICK_, function()
             {
+                ga("send", "event", "/Initiatives/InnerPage", "click", "BackToList");
                 Hash.to("/Home");
             });
 
             $doms.innerPageContainer.css('display', 'block').detach();
 
-            ApiProxy.callApi('initiatives', {}, null, function(response)
+            ApiProxy.callApi('initiative', {}, false, function(response)
             {
 
                 if(response.error)
@@ -84,7 +85,8 @@
                 $doms.innerPageContainer.prepend(dom);
 
                 _loadingXHR = $.ajax({
-                    url: contentUrl
+                    url: contentUrl,
+                    type: ApiProxy.getMethod()
                 }).done(function(data)
                 {
                     $(dom).html(data);

@@ -69,7 +69,7 @@
             }
         },
 
-        handleHash: function(hashArray)
+        handleHash: function(hashArray, rawHash)
         {
             var classHash = hashArray[0],
                 contentHash = hashArray[1],
@@ -83,6 +83,8 @@
                 var contentId = pageClass.validateContent(contentHash);
                 if(contentId)
                 {
+                    ga("send", "pageview", rawHash);
+
                     if(_isOpening)
                     {
                         self.switchPage(classHash, pageClass, contentId);

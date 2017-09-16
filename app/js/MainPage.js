@@ -16,6 +16,7 @@
         },
         _sectionDic = {},
         _isInnerPageMode = false,
+        _lastHashArray,
         _hashDic;
 
     var self = window.MainPage =
@@ -63,7 +64,7 @@
             Hash.init(function(hashName)
             {
                 var hashArray = Hash.analysis(hashName);
-                self.handleHash(hashArray);
+                self.handleHash(hashArray, hashName);
             });
 
 
@@ -76,12 +77,15 @@
             });
         },
 
-        handleHash: function(hashArray)
+        handleHash: function(hashArray, rawHash)
         {
             if(hashArray.length == 0)
             {
                 hashArray = ["/Home"];
             }
+
+            var lastHashArray = _lastHashArray;
+            _lastHashArray = hashArray;
 
             if(hashArray.length == 1)
             {
@@ -90,6 +94,11 @@
 
                 if(obj)
                 {
+                    if(!lastHashArray || lastHashArray.length > 1)
+                    {
+                        ga("send", "pageview", "/Index");
+                    }
+
                     if(_isInnerPageMode)
                     {
                         InnerPage.close(hashName);
@@ -102,7 +111,7 @@
             }
             else if(hashArray.length >= 2)
             {
-                InnerPage.handleHash(hashArray);
+                InnerPage.handleHash(hashArray, rawHash);
             }
         },
 

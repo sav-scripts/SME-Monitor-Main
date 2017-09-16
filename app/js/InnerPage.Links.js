@@ -41,7 +41,7 @@
                 toPage(_pageIndex+1);
             });
 
-            ApiProxy.callApi('links', {}, null, function(response)
+            ApiProxy.callApi('link', {}, false, function(response)
             {
                 if(response.error)
                 {
@@ -81,7 +81,15 @@
 
         $item.find(".thumb").css("background-image", "url("+obj.thumb+")").on(_CLICK_, function()
         {
-            window.open(obj.link, '_blank');
+
+            ga("send", "event", "/Index", "/Links/click", obj.id);
+
+            if(obj.link)
+            {
+                ApiProxy.sendClickEvent("link/"+obj.id+"/c");
+                window.open(obj.link, obj.target? obj.target: "_blank");
+            }
+
         });
         $item.find(".title").text(obj.title);
 

@@ -86,10 +86,10 @@
         var sendObj =
         {
             page_index: 0,
-            page_size: 3
+            page_size: 999
         };
 
-        ApiProxy.callApi('publication', sendObj, null, function(response)
+        ApiProxy.callApi('publication', sendObj, false, function(response)
         {
             if(response.error)
             {
@@ -124,9 +124,10 @@
 
         function onItemClick(dataObj)
         {
+            ga("send", "event", "/Index", "/Publication/click", dataObj.id);
+
             if(dataObj.hash)
             {
-                //console.log(dataObj.hash);
                 Hash.to(dataObj.hash);
             }
         }
