@@ -14,6 +14,16 @@ window._FAKE_DATA_ =
                     "image": "./test/images/banner-2.png",
                     "image_m": "./test/images/banner-2.m.png",
                     "link": "http://example.com/?v=2"
+                },
+                {
+                    "image": "./test/images/banner-2.png",
+                    "image_m": "./test/images/banner-2.m.png",
+                    "link": "http://example.com/?v=2"
+                },
+                {
+                    "image": "./test/images/banner-2.png",
+                    "image_m": "./test/images/banner-2.m.png",
+                    "link": "http://example.com/?v=2"
                 }
             ]
     },
@@ -617,7 +627,7 @@ window._FAKE_DATA_ =
         "data_list":
             [
                 {
-                    "img": "http://xxx.xx/photo/picture/001.jpg",
+                    "img": "./test/images/banner-1.png",
 
                     "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
                     "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
@@ -625,7 +635,7 @@ window._FAKE_DATA_ =
                     "filename": "photo 01"
                 },
                 {
-                    "img": "http://xxx.xx/photo/picture/001.jpg",
+                    "img": "./test/images/banner-1.png",
 
                     "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
                     "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
@@ -633,7 +643,7 @@ window._FAKE_DATA_ =
                     "filename": "photo 01"
                 },
                 {
-                    "img": "http://xxx.xx/photo/picture/001.jpg",
+                    "img": "./test/images/banner-1.png",
 
                     "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
                     "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
@@ -641,7 +651,7 @@ window._FAKE_DATA_ =
                     "filename": "photo 01"
                 },
                 {
-                    "img": "http://xxx.xx/photo/picture/001.jpg",
+                    "img": "./test/images/banner-1.png",
 
                     "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
                     "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
@@ -649,7 +659,7 @@ window._FAKE_DATA_ =
                     "filename": "photo 01"
                 },
                 {
-                    "img": "http://xxx.xx/photo/picture/001.jpg",
+                    "img": "./test/images/banner-1.png",
 
                     "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
                     "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
@@ -657,7 +667,7 @@ window._FAKE_DATA_ =
                     "filename": "photo 01"
                 },
                 {
-                    "img": "http://xxx.xx/photo/picture/001.jpg",
+                    "img": "./test/images/banner-1.png",
 
                     "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
                     "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
@@ -665,7 +675,7 @@ window._FAKE_DATA_ =
                     "filename": "photo 01"
                 },
                 {
-                    "img": "http://xxx.xx/photo/picture/001.jpg",
+                    "img": "./test/images/banner-1.png",
 
                     "thumb_desktop": "./test/images/pictures-thumb-1.s.png",
                     "thumb_mobile": "./test/images/pictures-thumb-1.s.m.png",
@@ -673,7 +683,8 @@ window._FAKE_DATA_ =
                     "filename": "photo 01"
                 }
             ],
-        "download_url": "http://example.com/"
+        "download_url": "http://example.com/",
+        "file_size": "12mb"
     },
 
     "video":
@@ -763,14 +774,17 @@ window._FAKE_DATA_ =
                     "link": "",
                     "content_url_desktop": "./test/inner_page/initiatives.001.html",
                     "content_url_mobile": "./test/inner_page/initiatives.001.m.html",
-                    "title": "2012"
+                    "title": "2012",
+                    "image_header": "./test/images/initiative-bg-top.png",
+                    "image_footer": "./test/images/initiative-bg-bottom.png"
                 },
                 {
                     "id": "002",
                     "link": "",
                     "content_url_desktop": "./test/inner_page/initiatives.001.html",
                     "content_url_mobile": "./test/inner_page/initiatives.001.m.html",
-                    "title": "2013"
+                    "title": "2013",
+                    "image_header": "./test/images/initiative-bg-top.png"
                 },
                 {
                     "id": "003",

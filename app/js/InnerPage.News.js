@@ -6,6 +6,9 @@
         _dataDic = {},
         _itemLister = null,
 
+        _obj_1,
+        _obj_2,
+
         _loadingXHR,
         _innerPageContentId,
         _loadedInnerPageDom,
@@ -37,6 +40,46 @@
 
             $doms.itemSample.detach();
 
+            var $footer = $("#footer");
+
+            $footer.find(".link-announcement").on(_CLICK_, function()
+            {
+                var dataObj = _obj_1;
+
+                if(dataObj)
+                {
+                    ga("send", "event", "/Index", "/Footer/Announcement/click");
+
+                    if(dataObj.link)
+                    {
+                        window.open(dataObj.link, dataObj.target? dataObj.target: "_blank");
+                    }
+                    else if(dataObj.hash)
+                    {
+                        Hash.to(dataObj.hash);
+                    }
+                }
+            });
+
+            $footer.find(".link-privacy").on(_CLICK_, function()
+            {
+                var dataObj = _obj_2;
+
+                if(dataObj)
+                {
+                    ga("send", "event", "/Index", "/Footer/Privacy/click");
+
+                    if(dataObj.link)
+                    {
+                        window.open(dataObj.link, dataObj.target? dataObj.target: "_blank");
+                    }
+                    else if(dataObj.hash)
+                    {
+                        Hash.to(dataObj.hash);
+                    }
+                }
+            });
+
             ApiProxy.callApi('news_release', {}, false, function(response)
             {
 
@@ -48,7 +91,21 @@
                 {
                     _dataList = response.data_list;
 
-                    _dataDic = createDataDic(_dataList);
+                    if(_dataList.length)
+                    {
+                        _obj_1 = _dataList.shift();
+                        _obj_1.hash = "/News/Announcement";
+                        _dataDic[_obj_1.id] = _obj_1;
+                    }
+
+                    if(_dataList.length)
+                    {
+                        _obj_2 = _dataList.shift();
+                        _obj_2.hash = "/News/Privacy";
+                        _dataDic[_obj_2.id] = _obj_2;
+                    }
+
+                    createDataDic(_dataList);
 
                     _itemLister = new ItemLister(response.data_list, $doms.content, $doms.itemSample, function(dataObj)
                     {
@@ -75,6 +132,18 @@
 
         validateContent: function(hashName)
         {
+            if(hashName === "/Announcement" && _obj_1)
+            {
+                return _obj_1.id;
+            }
+
+            if(hashName === "/Privacy" && _obj_2)
+            {
+                return _obj_2.id;
+            }
+
+
+
             var id = hashName.slice(1, hashName.length);
 
             if(_dataDic[id]) return id;
@@ -98,11 +167,17 @@
                     _loadingXHR.abort();
                 }
 
+
                 var vp = Main.viewport,
-                    dataObj = _dataDic[_innerPageContentId],
-                    contentUrl = vp.index === 0? dataObj.content_url_mobile: dataObj.content_url_desktop;
+                    dataObj = _dataDic[_innerPageContentId];
+
+                var contentUrl = vp.index === 0? dataObj.content_url_mobile: dataObj.content_url_desktop;
+
+
 
                 var dom = _loadedInnerPageDom = document.createElement('div');
+                dom.className = 'inner-page-content';
+
                 $doms.innerPageContainer.prepend(dom);
 
                 _loadingXHR = $.ajax({
@@ -165,18 +240,12 @@
         }
     };
 
-    function resetInnerPageContent(contentId)
-    {
-
-    }
-
     function createDataDic(dataList)
     {
         var keyword = 'id',
             classHash = '/News/';
 
-        var dic = {},
-            obj,
+        var obj,
             id,
             i;
 
@@ -189,11 +258,9 @@
             if(id)
             {
                 obj.hash = classHash + id;
-                dic[id] = obj;
+                _dataDic[id] = obj;
             }
         }
-
-        return dic;
     }
 
 }());

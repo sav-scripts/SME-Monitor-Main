@@ -94,6 +94,8 @@
 
                 if(obj)
                 {
+                    PictureViewer.close();
+
                     if(!lastHashArray || lastHashArray.length > 1)
                     {
                         ga("send", "pageview", "/Index");
@@ -149,7 +151,7 @@
         {
             if(_isInnerPageMode)
             {
-                cb.call();
+                if(cb) cb.call();
             }
             else
             {
@@ -177,10 +179,7 @@
 
                 tl.to($doms.container,.5, {height: 0});
 
-                tl.add(function()
-                {
-                    cb.call();
-                });
+                if(cb) tl.add(cb);
             }
         },
 

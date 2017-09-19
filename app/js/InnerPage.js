@@ -80,6 +80,8 @@
 
             if(pageClass)
             {
+                PictureViewer.close();
+
                 var contentId = pageClass.validateContent(contentHash);
                 if(contentId)
                 {
@@ -113,12 +115,7 @@
 
             //$doms.container.toggleClass('hide-mode', false);
 
-            MainPage.close(function()
-            {
-
-
-
-            });
+            MainPage.close();
 
             Menu.setFocusTo(classHash);
 
@@ -144,6 +141,9 @@
 
                     var contentHeight = $doms.content.height(),
                         newHeight = $doms.head.height() + contentHeight;
+
+
+                    //console.log(contentHeight);
 
 
                     TweenMax.killTweensOf($doms.container);

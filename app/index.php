@@ -31,7 +31,7 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
 
     <link rel="stylesheet" href="styles/main.css">
 
-
+    <!--
     <script>
 
         var _gaId = "<?=$gaCode?>";
@@ -50,6 +50,18 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
 
 
     </script>
+    -->
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?=$gaCode?>"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments)};
+        gtag('js', new Date());
+
+        gtag('config', '<?=$gaCode?>');
+    </script>
+
 
 </head>
 <body onload="Main.init();">
@@ -201,7 +213,10 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
                         </div>
 
                         <div class="btn-back"><div class="arrow"></div></div>
-                        <div class="btn-download"><div class="arrow"></div></div>
+                        <div class="btn-download">
+                            <div class="arrow"></div>
+                            <div class="file-size">[123mb]</div>
+                        </div>
 
 
                         <div class="spacer"></div>
@@ -277,6 +292,22 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
 
             <div id="banner" class="section" anchor="/Home">
                 <div class="content"></div>
+
+
+                <div class="page-dot-container">
+                    <!--<div class="dot"></div>-->
+                    <div class="arrow-prev"></div>
+                    <div class="dot-container">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="arrow-next"></div>
+                </div>
+
             </div>
 
             <div id="news" class="section" anchor="/News">
@@ -494,6 +525,8 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
                         <div class="row2"><a href="mailto:<?=$serviceEmail?>" target="_blank" ><?=$serviceEmail?></a></div>
                         <div class="row3">AUTHORIZATION METHOD</div>
                         <div class="row4">& SCOPE</div>
+                        <div class="row5 link-announcement">Government website open information announcement</div>
+                        <div class="row6 link-privacy">Privacy Statement</div>
                     </div>
 
                     <div class="fb-page-sample">
@@ -583,6 +616,13 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
 
     </div>
 
+    <div id="picture-viewer">
+        <div class="cover"></div>
+        <div class="loading-icon"></div>
+        <div class="image-container"></div>
+        <div class="btn-close"></div>
+    </div>
+
     <div id="fb-root"></div>
 
 
@@ -600,6 +640,7 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
 
     <!-- build:js js/optimized.js -->
     <script src="js/lib/Utility.0.0.15.js"></script>
+    <script src="js/lib/Helper.1.0.4.js"></script>
     <script src="js/ScrollListener.js"></script>
     <script src="js/ApiProxy.js"></script>
     <script src="js/Hash.js"></script>
@@ -618,6 +659,7 @@ if(!in_array($_SERVER['HTTP_HOST'], $test_hosts))
     <script src="js/InnerPage.Links.js"></script>
     <script src="js/InnerPage.Initiatives.js"></script>
     <script src="js/InnerPage.Download.js"></script>
+    <script src="js/PictureViewer.js"></script>
     <script src="js/DownloadContent.js"></script>
     <script src="js/ItemLister.js"></script>
     <script src="js/DotPager.js"></script>

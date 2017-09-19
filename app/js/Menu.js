@@ -22,6 +22,11 @@
                 mobileMenuPart: $doms.container.find(".menu-part")
             });
 
+            $doms.logo = $doms.topPart.find(".logo").on(_CLICK_, function()
+            {
+                Hash.to("/Home");
+            });
+
             setupPcMenu();
             setupMobileMenu();
         },
@@ -112,7 +117,17 @@
                     {
                         ga("send", "event", "Menu", "/Initiatives/Menu/click", obj.id);
                         self.switchDropMenu(false);
-                        Hash.to("/Initiatives/" + obj.id);
+
+
+                        if(obj.link)
+                        {
+                            window.open(obj.link, obj.target? obj.target: "_blank");
+                        }
+                        else
+                        {
+                            Hash.to("/Initiatives/" + obj.id);
+                        }
+
                     });
 
                     $container.append($btn);
@@ -194,9 +209,16 @@
                     {
                         ga("send", "event", "Menu", "/Initiatives/Menu/click", obj.id);
                         self.switchDropMenu(false);
-                        Hash.to("/Initiatives/" + obj.id);
-
                         self.switchMobileOpen(false);
+
+                        if(obj.link)
+                        {
+                            window.open(obj.link, obj.target? obj.target: "_blank");
+                        }
+                        else
+                        {
+                            Hash.to("/Initiatives/" + obj.id);
+                        }
                     });
 
                     $container.append($btn);

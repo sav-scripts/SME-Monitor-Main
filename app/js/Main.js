@@ -116,6 +116,8 @@
 
         Menu.resize();
         MainPage.resize();
+
+        PictureViewer.resize();
     }
 
 }());

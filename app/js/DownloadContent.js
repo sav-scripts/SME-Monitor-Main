@@ -67,6 +67,10 @@
                         var url = ApiProxy.getApiPath() + "download/batch";
                         Main.downloadFiles("POST", url, {'file_list':checkedArray}, "_self");
                     }
+                    else
+                    {
+                        alert("Please select files");
+                    }
                 }
             });
 

@@ -452,6 +452,40 @@
 
     /* banner */
     #banner{
+        .page-dot-container{
+
+
+
+            bottom: 5px;
+
+            .dot-container{
+
+                .dot{
+
+                    position: relative;
+                    display: inline-block;
+                    width: 42px;
+                    height: 42px;
+                    background-position: bottom;
+
+                    margin-left: 4px;
+                    margin-right: 4px;
+
+                    .image-bg('page-dot.m.png');
+
+                    cursor: pointer;
+
+                    &.focus-mode{
+                        background-position: top;
+                    }
+                }
+
+            }
+
+            .arrow-prev, .arrow-next{
+                display: none;
+            }
+        }
     }
 
     /* news */
@@ -555,8 +589,8 @@
             .abs-div-2(logo, 60,60,179,96,'logo-179x96.png');
 
             .detail{
-                left:300px;
-                top:47px;
+                left:280px;
+                top:27px;
 
                 div{
 
@@ -585,6 +619,13 @@
 
                 .row4{
                     font-weight: normal;
+                }
+
+                .row5{
+                    letter-spacing: .5px;
+                }
+                .row6{
+
                 }
             }
 
@@ -835,6 +876,21 @@
 
             .arrow{
                 display: none;
+            }
+
+
+            .file-size{
+                font-family: Arial, serif;
+                font-size: 38px;
+                font-weight: bold;
+
+                position: absolute;
+                width: 313px;
+                bottom: -59px;
+
+                color: #3a3a3a;
+
+                text-align: center;
             }
         }
     }
@@ -1275,6 +1331,23 @@
 
         .btn-download{
             display: none;
+        }
+    }
+
+
+
+    /* picture viewer */
+    #picture-viewer{
+
+        .btn-close{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            .image-bg("btn-close.png");
+            cursor: pointer;
+
+            width: 70px;
+            height: 70px;
         }
     }
 }

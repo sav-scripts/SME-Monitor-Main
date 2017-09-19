@@ -77,11 +77,15 @@
                     _loadingXHR.abort();
                 }
 
+                $doms.innerPageContainer.find(".image-top").detach();
+                $doms.innerPageContainer.find(".image-bottom").detach();
+
                 var vp = Main.viewport,
                     dataObj = _dataDic[_innerPageContentId],
                     contentUrl = vp.index === 0? dataObj.content_url_mobile: dataObj.content_url_desktop;
 
                 var dom = _loadedInnerPageDom = document.createElement('div');
+                dom.className = 'inner-page-content';
                 $doms.innerPageContainer.prepend(dom);
 
                 _loadingXHR = $.ajax({
@@ -91,13 +95,72 @@
                 {
                     $(dom).html(data);
 
-                    InnerPage.updateContainerHeight();
+                    var count = 0,
+                        imgHeight = 0,
+                        img;
 
-                    if(_onInnerPageLoaded)
+                    if(vp.index === 1)
                     {
+                        if(dataObj.image_header)
+                        {
+                            count ++;
+                            img = new Image;
+                            img.onload = imageLoaded;
+                            img.src = dataObj.image_header;
+                            img.className = 'image-top';
 
-                        _onInnerPageLoaded.call(null, $doms.innerPageContainer);
-                        _onInnerPageLoaded = null;
+                            $doms.innerPageContainer.prepend(img);
+                        }
+
+                        if(dataObj.image_footer)
+                        {
+                            count ++;
+                            img = new Image;
+                            img.onload = imageLoaded;
+                            img.src = dataObj.image_footer;
+                            img.className = 'image-bottom';
+
+                            $doms.innerPageContainer.prepend(img);
+                        }
+
+                        if(count === 0) allDone();
+                    }
+                    else
+                    {
+                        allDone();
+                    }
+
+                    function imageLoaded()
+                    {
+                        count --;
+                        imgHeight += this.height;
+
+                        if(count === 0)
+                        {
+                            allDone(imgHeight);
+                        }
+                    }
+
+                    function allDone(minHeight)
+                    {
+                        if(minHeight)
+                        {
+                            $doms.innerPageContainer.css("min-height", minHeight + "px");
+                        }
+                        else
+                        {
+                            $doms.innerPageContainer.css("min-height", "");
+                        }
+
+
+                        InnerPage.updateContainerHeight();
+
+                        if(_onInnerPageLoaded)
+                        {
+
+                            _onInnerPageLoaded.call(null, $doms.innerPageContainer);
+                            _onInnerPageLoaded = null;
+                        }
                     }
 
                 }).fail(function()

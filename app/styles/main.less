@@ -1,7 +1,7 @@
 @import "common-mixins.less";
 @import "misc.less";
 
-@background-color: #333333;
+@background-color: #dadada;
 //@background-color: #ffffff;
 
 @pc-width: 1200px;
@@ -107,6 +107,11 @@ body{
         background-color: white;
 
         .abs-div-2(logo, 44, 14, 95, 51, "logo.png");
+        .logo{
+            cursor: pointer;
+        }
+
+
         .abs-div-2(title, 156, 26, 187, 30, "header-title.png");
 
         .abs-div-2(triangle, 961, 36, 4, 8, "header-triangle.png");
@@ -562,17 +567,43 @@ body{
 //        height: 400px;
 //        background-color: rgba(0,0,0,.2);
 
-        padding-bottom: 100px;
+//        padding-bottom: 100px;
 
         .inner-page-content-container{
             display: none;
 //            margin-bottom: 150px;
+        }
+
+        .inner-page-content{
+            padding: 20px;
         }
     }
 }
 
 /* initiatives-inner-page */
 #initiatives-inner-page{
+
+    position: relative;
+
+    .image-top{
+        position: absolute;
+        left:0;
+        top:0;
+        z-index: 0;
+    }
+
+    .image-bottom{
+        position: absolute;
+        left:0;
+        bottom:0;
+        z-index: 0;
+    }
+
+    .inner-page-content{
+        position: relative;
+        z-index: 1;
+
+    }
 
     .btn-back{
         position: relative;
@@ -1043,7 +1074,7 @@ body{
                 width: @thumb-width;
                 height: @thumb-height;
 
-
+                cursor: pointer;
 //                background-color: rgba(0,0,0,.2);
             }
 
@@ -1118,6 +1149,20 @@ body{
             .arrow{
                 margin-right: -1px;
             }
+        }
+
+        .file-size{
+            font-family: Arial, serif;
+            font-size: 18px;
+            font-weight: bold;
+
+            position: absolute;
+            width: 151px;
+            bottom: -29px;
+
+            color: #3a3a3a;
+
+            text-align: center;
         }
     }
 }
@@ -1351,11 +1396,13 @@ body{
         height: 56px;
         .image-bg('inner-page-btn-download-2.png');
 
-        cursor: pointer;
+
 
 
         float: left;
         margin: 70px @bleed + @half-gap 100px @half-gap;
+
+        opacity: .5;
 
         .arrow{
             position: absolute;
@@ -1378,6 +1425,8 @@ body{
 
 .spacer{
     clear:both;
+    height: 1px;
+    margin-top: -1px;
 }
 
 /* banner */
@@ -1409,6 +1458,79 @@ body{
 
             cursor: pointer;
         }
+    }
+
+    .page-dot-container{
+        position: absolute;
+
+        visibility: hidden;
+
+        @size: 24px;
+        @num-cols: 20;
+
+
+        text-align: center;
+        width: 100%;
+//        margin: 40px auto;
+
+        bottom: 20px;
+
+        div{
+            .unselectable();
+        }
+
+        .dot-container{
+
+            display: inline-block;
+
+            .dot{
+
+                position: relative;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background-position: bottom;
+
+                margin: 10px 4px;
+
+                .image-bg('page-dot.png');
+
+                cursor: pointer;
+
+                &.focus-mode{
+                    background-position: top;
+                }
+            }
+
+        }
+
+        .arrow-prev, .arrow-next{
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 40px;
+            cursor: pointer;
+            background-repeat: no-repeat;
+        }
+
+        .arrow-prev{
+            .image-bg("banner-arrow-prev.png");
+
+
+            &:active{
+                background-position: -1px;
+            }
+        }
+
+        .arrow-next{
+            .image-bg("banner-arrow-next.png");
+
+            &:active{
+                background-position: 1px;
+            }
+        }
+
+
     }
 }
 
@@ -1698,12 +1820,12 @@ body{
         height: 322px;
         background-color: #eaf3f0;
 
-        .abs-div-2(logo, 84,189,108,58,'logo-108x58.png');
+        .abs-div-2(logo, 84,149,108,58,'logo-108x58.png');
 
         .detail{
             position: absolute;
             left:218px;
-            top:168px;
+            top:128px;
 
             div{
 
@@ -1733,6 +1855,20 @@ body{
             }
 
             .row4{
+            }
+
+
+            .row5{
+                margin-top: 16px;
+                cursor: pointer;
+                color: #7a8e9a;
+                font-size: 12px;
+            }
+            .row6{
+                margin-top: 6px;
+                cursor: pointer;
+                color: #7a8e9a;
+                font-size: 12px;
             }
         }
 
@@ -1776,10 +1912,85 @@ body{
 
         position: relative;
         width: 100%;
-        height: 260px;
-        background-color: #000d21;
+        height: 30px;
+        background-color: white;
     }
 }
+
+/* picture viewer */
+#picture-viewer{
+
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    left:0;
+    top:0;
+
+    display: none;
+
+
+
+    .cover{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        opacity: .8;
+    }
+
+    .btn-close{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        .image-bg("btn-close-small.png");
+        cursor: pointer;
+
+        width: 50px;
+        height: 50px;
+    }
+
+    .loading-icon{
+        position: absolute;
+        @w: 80px;
+        @h: 80px;
+
+        width: @w;
+        height: @h;
+        left: 50%;
+        top:50%;
+        margin-left: -@w * .5;
+        margin-top:  -@h * .5;
+
+        .image-bg("loading.gif");
+
+        background-position: center center;
+
+        border-radius: @w;
+
+        @d: .5s;
+
+        transition: opacity @d ease-out, visibility 0s linear;
+
+        &.hide-mode{
+
+            transition: opacity @d ease-out, visibility 0s linear @d;
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    .image-container{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        img{
+            position: absolute;
+        }
+    }
+}
+
 
 
 @import "main-mobile.less";
