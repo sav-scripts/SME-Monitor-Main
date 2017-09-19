@@ -61,6 +61,8 @@ body{
 #scene-container{
     .main-container();
 
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+
     min-height: 100%;
 
     background-color: white;
@@ -88,7 +90,19 @@ body{
 /* header */
 #header{
 
-    .main-container();
+
+
+    position: absolute;
+    width: @pc-width;
+    left:50%;
+    margin-left: -@pc-width * .5;
+
+//    overflow-x: hidden;
+
+    @media(max-width: @pc-width) {
+        left:0;
+        margin-left: 0;
+    }
 
     z-index: 100;
 
@@ -103,6 +117,8 @@ body{
 
         width: 100%;
         height: @pc-top-part-height;
+
+        overflow: hidden;
 
         background-color: white;
 
@@ -1401,8 +1417,6 @@ body{
 
         float: left;
         margin: 70px @bleed + @half-gap 100px @half-gap;
-
-        opacity: .5;
 
         .arrow{
             position: absolute;

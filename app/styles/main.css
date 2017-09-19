@@ -132,6 +132,7 @@ body {
   left: 50%;
   margin-left: -600px;
   overflow-x: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   min-height: 100%;
   background-color: white;
 }
@@ -168,7 +169,6 @@ body {
   width: 1200px;
   left: 50%;
   margin-left: -600px;
-  overflow-x: hidden;
   z-index: 100;
   overflow: initial;
 }
@@ -185,6 +185,7 @@ body {
 #header .top-part {
   width: 100%;
   height: 72px;
+  overflow: hidden;
   background-color: white;
 }
 #header .top-part .logo {
@@ -1001,7 +1002,6 @@ body {
   background-size: auto;
   float: left;
   margin: 70px 386px 100px 10px;
-  opacity: .5;
 }
 #download-inner-page .btn-download .arrow {
   position: absolute;
@@ -2240,8 +2240,8 @@ body {
     position: absolute;
     left: 165px;
     top: 32px;
-    width: 331px;
-    height: 36px;
+    width: 214px;
+    height: 34px;
     margin-left: 0px;
     margin-top: 0px;
     background-image: url("../images/header-title.m.png");
