@@ -89,18 +89,18 @@
 
                     if(_isOpening)
                     {
-                        self.switchPage(classHash, pageClass, contentId);
+                        self.switchPage(classHash, pageClass, contentId, rawHash);
                     }
                     else
                     {
-                        self.open(classHash, pageClass, contentId);
+                        self.open(classHash, pageClass, contentId, rawHash);
                     }
 
                 }
             }
         },
 
-        open: function(classHash, pageClass, contentId)
+        open: function(classHash, pageClass, contentId, rawHash)
         {
             if(_isOpening) return;
             _isOpening = true;
@@ -109,8 +109,18 @@
 
             _pageClass = pageClass;
 
-            //console.log(_pageClass.name);
-            $doms.headTitle.text(_pageClass.name);
+            if(rawHash === "/News/Announcement")
+            {
+                $doms.headTitle.text("Announcement");
+            }
+            else if(rawHash === "/News/Privacy")
+            {
+                $doms.headTitle.text("Privacy Statement");
+            }
+            else
+            {
+                $doms.headTitle.text(_pageClass.name);
+            }
 
 
             //$doms.container.toggleClass('hide-mode', false);
@@ -202,7 +212,7 @@
             });
         },
 
-        switchPage: function(classHash, pageClass, contentId)
+        switchPage: function(classHash, pageClass, contentId, rawHash)
         {
             Hash.stopListening();
 
@@ -222,7 +232,7 @@
                 //    Hash.startListening();
                 //});
                 _isOpening = false;
-                self.open(classHash, pageClass, contentId);
+                self.open(classHash, pageClass, contentId, rawHash);
 
             });
         },

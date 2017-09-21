@@ -125,7 +125,7 @@
                         }
                         else
                         {
-                            Hash.to("/Initiatives/" + obj.id);
+                            Hash.to("/Initiatives/" + obj.title);
                         }
 
                     });
@@ -217,7 +217,7 @@
                         }
                         else
                         {
-                            Hash.to("/Initiatives/" + obj.id);
+                            Hash.to("/Initiatives/" + obj.title);
                         }
                     });
 
@@ -239,12 +239,12 @@
 
             if(isOpen)
             {
-                $(window).bind('mouseup', onWindowMousedown);
+                $(window).bind('mouseup touchend', onWindowMousedown);
                 $doms.dropMenu._tl.play();
             }
             else
             {
-                $(window).unbind('mouseup', onWindowMousedown);
+                $(window).unbind('mouseup touchend', onWindowMousedown);
                 $doms.dropMenu._tl.reverse();
             }
 

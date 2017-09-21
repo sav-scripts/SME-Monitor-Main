@@ -3,7 +3,7 @@
     "use strict";
     var self = window.Main =
     {
-        testDomain: "apac.jktarots.com:9454",
+        apiPath: "//admin.apecsmemonitor.moeasmea.gov.tw/api/",
 
         localSettings:
         {
@@ -43,6 +43,13 @@
                 //Main.settings.useFakeData = true;
                 //Main.settings.debug = true;
             }
+
+            if( window.location.host == "apac.jktarots.com:9454" || window.location.host == "www.apac.jktarots.com:9454")
+            {
+                self.apiPath = "//admin.apac.jktarots.com:9454/api/";
+            }
+
+            ApiProxy.setApiPath(self.apiPath);
 
 
             self.settings.isLineBrowser = Boolean(navigator.userAgent.match('Line'));

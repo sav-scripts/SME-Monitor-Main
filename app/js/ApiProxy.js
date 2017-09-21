@@ -6,7 +6,7 @@
     var _fakeData = window._FAKE_DATA_;
 
     var _apiExtension = "",
-        _apiPath = "http://admin.apac.jktarots.com:9454/api/",
+        _apiPath = "./api/",
         _method = "POST",
         _dataType = "json";
 
@@ -68,6 +68,11 @@
         getApiPath: function()
         {
             return _apiPath;
+        },
+
+        setApiPath: function(path)
+        {
+            _apiPath = path;
         },
 
         getMethod: function()

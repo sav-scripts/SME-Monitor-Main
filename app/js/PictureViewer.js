@@ -50,6 +50,8 @@
                 self.resize();
                 $doms.loadingIcon.toggleClass("hide-mode", true);
                 $doms.imageContainer.append(img);
+
+                TweenMax.from(img,.7,{autoAlpha:0, marginTop: 300, ease:Back.easeOut});
             };
 
             img.src = imageUrl;

@@ -298,6 +298,11 @@ body {
   font-size: 12px;
   font-weight: bold;
   color: #5b5b5b;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 #header .menu-part .baseline {
   position: absolute;
@@ -1152,7 +1157,7 @@ body {
 #news .content .item-container {
   position: relative;
   width: 930px;
-  min-height: 340px;
+  min-height: 350px;
   margin-top: 101px;
   margin-left: auto;
   margin-right: auto;
@@ -1313,7 +1318,7 @@ body {
 #events .content .item-container {
   position: relative;
   width: 930px;
-  min-height: 340px;
+  min-height: 350px;
   margin-top: 101px;
   margin-left: auto;
   margin-right: auto;
@@ -1474,7 +1479,7 @@ body {
 #publication .content .item-container {
   position: relative;
   width: 930px;
-  min-height: 340px;
+  min-height: 350px;
   margin-top: 101px;
   margin-left: auto;
   margin-right: auto;
@@ -1576,6 +1581,9 @@ body {
   padding-top: 130px;
   display: none;
 }
+#publication .content .item-container {
+  min-height: 360px;
+}
 /* pictures */
 #pictures {
   position: relative;
@@ -1635,7 +1643,7 @@ body {
 #pictures .content .item-container {
   position: relative;
   width: 930px;
-  min-height: 340px;
+  min-height: 350px;
   margin-top: 101px;
   margin-left: auto;
   margin-right: auto;
@@ -1800,7 +1808,7 @@ body {
 #videos .content .item-container {
   position: relative;
   width: 920px;
-  min-height: 340px;
+  min-height: 350px;
   margin-top: 101px;
   margin-left: auto;
   margin-right: auto;
@@ -1957,9 +1965,9 @@ body {
 }
 #links .content .item-container {
   position: absolute;
-  left: 230px;
+  left: 233px;
   top: 27px;
-  width: 636px;
+  width: 630px;
   height: 100px;
   overflow-x: hidden;
 }
@@ -1970,12 +1978,12 @@ body {
 }
 #links .content .item-container .item-wrapper .item {
   position: relative;
-  width: 202px;
+  width: 200px;
   margin: auto 5px;
   float: left;
 }
 #links .content .item-container .item-wrapper .item .thumb {
-  width: 202px;
+  width: 200px;
   height: 56px;
   cursor: pointer;
 }

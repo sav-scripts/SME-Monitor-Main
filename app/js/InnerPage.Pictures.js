@@ -112,7 +112,7 @@
 
                 _downloadUrl = response.download_url;
 
-                $doms.btnDownload.find(".file-size").text("["+response.file_size+"]");
+                $doms.btnDownload.find(".file-size").text("File Size: "+response.zip_size+"");
 
                 buildInnerPage(response.data_list);
 

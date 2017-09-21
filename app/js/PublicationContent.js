@@ -310,7 +310,7 @@
         $thumb.css("background-image", "url("+obj.thumb_small_desktop+")");
 
         $row.find(".col-date").text(obj.date);
-        $row.find(".col-title").text(obj.title);
+        $row.find(".col-name").text(obj.title);
         $row.find(".col-description").text(obj.description);
 
 

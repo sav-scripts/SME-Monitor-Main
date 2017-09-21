@@ -123,6 +123,9 @@
                             $doms.innerPageContainer.prepend(img);
                         }
 
+                        //console.log(dataObj.image_header);
+                        //console.log(dataObj.image_footer);
+
                         if(count === 0) allDone();
                     }
                     else
@@ -209,7 +212,7 @@
 
     function createDataDic(dataList)
     {
-        var keyword = 'id',
+        var keyword = 'title',
             classHash = '/Initiatives/';
 
         var dic = {},
